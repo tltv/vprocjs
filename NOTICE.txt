@@ -1,0 +1,3 @@
+List of dependencies
+- Vaadin 7.x.x
+- processing-x.x.x.js
