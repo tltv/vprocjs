@@ -1,5 +1,13 @@
 package org.vaadin.tltv.vprocjs.test.server;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.data.util.FilesystemContainer;
@@ -16,12 +24,6 @@ import com.vaadin.ui.Tree;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FilenameFilter;
-import java.io.IOException;
 
 public class ProcessingTestUI extends UI {
 
@@ -42,9 +44,8 @@ public class ProcessingTestUI extends UI {
     }
 
     private Component createSourceBrowser() {
-        FilesystemContainer c = new FilesystemContainer(new File(getSession()
-                .getService().getBaseDirectory().getAbsolutePath()
-                + File.separator + "WEB-INF" + File.separator + "src"), true);
+        String path = getSourcePath();
+        FilesystemContainer c = new FilesystemContainer(new File(path), true);
 
         c.setFilter(new FilenameFilter() {
             @Override
@@ -52,6 +53,7 @@ public class ProcessingTestUI extends UI {
                 return true;
             }
         });
+
         Tree tree = new Tree("Source codes");
         tree.setContainerDataSource(c);
         tree.setItemCaptionMode(ItemCaptionMode.PROPERTY);
@@ -148,5 +150,20 @@ public class ProcessingTestUI extends UI {
             return (ProcessingTestUI) ui;
         }
         return null;
+    }
+
+    private String getSourcePath() {
+        String path = getSession().getService().getBaseDirectory()
+                .getAbsolutePath()
+                + File.separator + "WEB-INF" + File.separator + "src";
+        try {
+            ResourceBundle bundle = ResourceBundle.getBundle("vprocjs");
+            if (bundle != null) {
+                path = bundle.getString("src.tree.path");
+            }
+        } catch (MissingResourceException e) {
+            // nop
+        }
+        return path;
     }
 }
