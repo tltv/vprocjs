@@ -26,7 +26,7 @@ public class VProcessing extends Composite implements ProcessingJs,
         ClickHandler, MouseWheelHandler, MouseUpHandler, MouseDownHandler,
         MouseOutHandler, MouseOverHandler {
 
-    public static final String CLASSNAME = "i-VProcessing";
+    public static final String CLASSNAME = "VProcessing";
 
     private ProcessingServerRpc rpc;
     private ProcessingEventServerRpc eventrpc;

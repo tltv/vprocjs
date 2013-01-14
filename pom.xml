@@ -139,6 +139,34 @@
 					<classesDirectory>${basedir}/target/classes</classesDirectory>
 				</configuration>
 			</plugin>
+			<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.3.1</version>
+        <configuration>
+          <archive>
+            <index>true</index>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <!-- Implementation-Title and Implementation-Version come from the POM by default -->
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+            <manifestEntries>
+              <!-- Package format version - do not change -->
+              <Vaadin-Package-Version>1</Vaadin-Package-Version>
+
+              <!-- Add-on specific fields to update -->
+
+              <!-- Implementation-Title and Implementation-Version come from the POM by default -->
+                <Implementation-Title>ProcessingJs</Implementation-Title>
+                <Implementation-Version>0.0.1</Implementation-Version>
+
+              <!-- Comma-separated list of widgetsets in the package -->
+              <Vaadin-Widgetsets>org.vaadin.tltv.vprocjs.gwt.ProcessingJsWidgetset</Vaadin-Widgetsets>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
