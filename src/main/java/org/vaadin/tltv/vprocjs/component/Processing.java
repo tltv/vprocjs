@@ -1,22 +1,20 @@
 package org.vaadin.tltv.vprocjs.component;
 
-import com.vaadin.annotations.JavaScript;
-import com.vaadin.ui.AbsoluteLayout;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.CustomComponent;
-
-import org.vaadin.tltv.vprocjs.gwt.client.ui.ProcessingEventServerRpc;
-import org.vaadin.tltv.vprocjs.gwt.client.ui.ProcessingServerRpc;
-import org.vaadin.tltv.vprocjs.gwt.client.ui.ProcessingState;
-
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.vaadin.tltv.vprocjs.gwt.client.ui.ProcessingServerRpc;
+import org.vaadin.tltv.vprocjs.gwt.client.ui.ProcessingState;
+
+import com.vaadin.annotations.JavaScript;
+import com.vaadin.ui.AbsoluteLayout;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.CustomComponent;
+
 @JavaScript({ "processing-1.4.1.js" })
-public class Processing extends CustomComponent implements ProcessingServerRpc,
-        ProcessingEventServerRpc {
+public class Processing extends CustomComponent implements ProcessingServerRpc {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,15 +23,15 @@ public class Processing extends CustomComponent implements ProcessingServerRpc,
     private int mouseX = 0;
     private int mouseY = 0;
 
-    private List<MouseClickListener> mouseClickListeners = new ArrayList<MouseClickListener>();
-    private List<MousePressListener> mousePressListeners = new ArrayList<MousePressListener>();
-    private List<MouseReleaseListener> mouseReleaseListeners = new ArrayList<MouseReleaseListener>();
-    private List<MouseEnterListener> mouseEnterListeners = new ArrayList<MouseEnterListener>();
-    private List<MouseLeaveListener> mouseLeaveListeners = new ArrayList<MouseLeaveListener>();
-    private List<MouseWheelListener> mouseWheelListeners = new ArrayList<MouseWheelListener>();
+    private final List<MouseClickListener> mouseClickListeners = new ArrayList<MouseClickListener>();
+    private final List<MousePressListener> mousePressListeners = new ArrayList<MousePressListener>();
+    private final List<MouseReleaseListener> mouseReleaseListeners = new ArrayList<MouseReleaseListener>();
+    private final List<MouseEnterListener> mouseEnterListeners = new ArrayList<MouseEnterListener>();
+    private final List<MouseLeaveListener> mouseLeaveListeners = new ArrayList<MouseLeaveListener>();
+    private final List<MouseWheelListener> mouseWheelListeners = new ArrayList<MouseWheelListener>();
 
-    private List<KeyPressListener> keyPressListeners = new ArrayList<KeyPressListener>();
-    private List<KeyReleaseListener> keyReleaseListeners = new ArrayList<KeyReleaseListener>();
+    private final List<KeyPressListener> keyPressListeners = new ArrayList<KeyPressListener>();
+    private final List<KeyReleaseListener> keyReleaseListeners = new ArrayList<KeyReleaseListener>();
 
     private static final Method MOUSE_CLICK_METHOD;
     private static final Method MOUSE_PRESS_METHOD;
@@ -76,7 +74,6 @@ public class Processing extends CustomComponent implements ProcessingServerRpc,
         buildMainLayout();
         setCompositionRoot(mainLayout);
         registerRpc(this, ProcessingServerRpc.class);
-        registerRpc(this, ProcessingEventServerRpc.class);
     }
 
     private void buildMainLayout() {
@@ -93,7 +90,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc,
     }
 
     public void setProcessingCode(String code) {
-        this.processingCode = code;
+        processingCode = code;
         getState().setProcessingCode((code != null) ? code : "");
     }
 
@@ -343,9 +340,9 @@ public class Processing extends CustomComponent implements ProcessingServerRpc,
 
         private static final long serialVersionUID = 1L;
 
-        private int x;
+        private final int x;
 
-        private int y;
+        private final int y;
 
         public MousePressEvent(Component source, int x, int y) {
             super(source);
@@ -371,9 +368,9 @@ public class Processing extends CustomComponent implements ProcessingServerRpc,
 
         private static final long serialVersionUID = 1L;
 
-        private int x;
+        private final int x;
 
-        private int y;
+        private final int y;
 
         public MouseReleaseEvent(Component source, int x, int y) {
             super(source);
@@ -399,7 +396,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc,
 
         private static final long serialVersionUID = 1L;
 
-        private int key;
+        private final int key;
 
         public KeyPressEvent(Component source, int key) {
             super(source);
@@ -462,9 +459,9 @@ public class Processing extends CustomComponent implements ProcessingServerRpc,
 
         private static final long serialVersionUID = 1L;
 
-        private boolean up;
+        private final boolean up;
 
-        private int deltaY;
+        private final int deltaY;
 
         public MouseWheelEvent(Component source, boolean up, int deltaY) {
             super(source);
@@ -490,51 +487,4 @@ public class Processing extends CustomComponent implements ProcessingServerRpc,
         }
     }
 
-    @Override
-    public void mouseMoved() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseDragged() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mousePressed() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseClicked() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseReleased() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void keyPressed() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void keyReleased() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void keyTyped() {
-        // TODO Auto-generated method stub
-
-    }
 }

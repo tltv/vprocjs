@@ -19,14 +19,15 @@ import java.util.Map;
  */
 public class ProcessingCodeBase implements ProcessingCode {
 
-    protected VProcessing pro;
+    protected ProcessingJavascriptObject pro;
+    protected VProcessing vprocessing;
 
     protected Map<Object, Object> sharedVariables;
 
     @Override
     public void setProcessing(VProcessing vprocessing,
             Map<Object, Object> sharedVariables) {
-        pro = vprocessing;
+        this.vprocessing = vprocessing;
         this.sharedVariables = sharedVariables;
         if (this.sharedVariables == null) {
             this.sharedVariables = new HashMap<Object, Object>();
@@ -84,5 +85,11 @@ public class ProcessingCodeBase implements ProcessingCode {
     @Override
     public Map<Object, Object> getSharedVariables() {
         return sharedVariables;
+    }
+
+    @Override
+    public void setProcessingJavascriptObject(
+            ProcessingJavascriptObject proJsObj) {
+        pro = proJsObj;
     }
 }

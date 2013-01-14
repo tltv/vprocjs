@@ -13,18 +13,15 @@ import com.vaadin.shared.ui.Connect;
 public class ProcessingConnector extends AbstractComponentConnector {
 
     ProcessingServerRpc rpc;
-    ProcessingEventServerRpc eventrpc;
 
     public ProcessingConnector() {
         rpc = RpcProxy.create(ProcessingServerRpc.class, this);
-        eventrpc = RpcProxy.create(ProcessingEventServerRpc.class, this);
     }
 
     @Override
     protected Widget createWidget() {
         VProcessing widget = GWT.create(VProcessing.class);
         widget.setRpc(rpc);
-        widget.setEventRpc(eventrpc);
         return widget;
     }
 
@@ -32,7 +29,6 @@ public class ProcessingConnector extends AbstractComponentConnector {
     public void onStateChanged(StateChangeEvent stateChangeEvent) {
         super.onStateChanged(stateChangeEvent);
 
-        // TODO use @DelegateToWidget("setSomething")
         ProcessingState state = getState();
         VProcessing widget = getWidget();
         widget.setUId(getConnectorId());
