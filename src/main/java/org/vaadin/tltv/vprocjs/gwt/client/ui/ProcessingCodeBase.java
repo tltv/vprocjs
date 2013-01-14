@@ -3,6 +3,20 @@ package org.vaadin.tltv.vprocjs.gwt.client.ui;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Base class for the Java implementation of the Processing sketch. Client side
+ * classes that extends this, can be used as a <code>ProcessingCode</code> for
+ * the VProcessing widget.</br></br>
+ * 
+ * Processing functions are available via the <code>pro</code>
+ * variable.</br></br>
+ * 
+ * Supports shared variables via the map <code>sharedVariables</code> that are
+ * transferred between the sketches assigned for the owner VProcessing widget.
+ * 
+ * @author Tltv
+ * 
+ */
 public class ProcessingCodeBase implements ProcessingCode {
 
     protected VProcessing pro;
@@ -12,7 +26,7 @@ public class ProcessingCodeBase implements ProcessingCode {
     @Override
     public void setProcessing(VProcessing vprocessing,
             Map<Object, Object> sharedVariables) {
-        this.pro = vprocessing;
+        pro = vprocessing;
         this.sharedVariables = sharedVariables;
         if (this.sharedVariables == null) {
             this.sharedVariables = new HashMap<Object, Object>();

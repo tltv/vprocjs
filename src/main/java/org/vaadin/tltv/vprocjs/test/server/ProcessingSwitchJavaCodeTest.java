@@ -1,15 +1,22 @@
 package org.vaadin.tltv.vprocjs.test.server;
 
+import org.vaadin.tltv.vprocjs.component.Processing;
+import org.vaadin.tltv.vprocjs.gwt.client.ui.test.ProcessingJavaCode1;
+import org.vaadin.tltv.vprocjs.gwt.client.ui.test.ProcessingJavaCode2;
+
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
-import org.vaadin.tltv.vprocjs.component.Processing;
-import org.vaadin.tltv.vprocjs.gwt.client.ui.test.ProcessingJavaCode1;
-import org.vaadin.tltv.vprocjs.gwt.client.ui.test.ProcessingJavaCode2;
-
+/**
+ * Sample to show how the Processing component can be used by its own Java API
+ * to change client side Java implementation of the sketch on the fly.
+ * 
+ * @author Tltv
+ * 
+ */
 public class ProcessingSwitchJavaCodeTest extends VerticalLayout {
 
     public ProcessingSwitchJavaCodeTest() {

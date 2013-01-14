@@ -5,6 +5,10 @@ import com.vaadin.client.ServerConnector;
 import com.vaadin.client.communication.StateChangeEvent;
 import com.vaadin.client.extensions.AbstractExtensionConnector;
 
+/**
+ * Abstract Connector for the Java implementation of the sketches. This class
+ * acts as a client-side link to the server.
+ */
 public abstract class ProcessingCodeConnector extends
         AbstractExtensionConnector {
 
@@ -28,6 +32,13 @@ public abstract class ProcessingCodeConnector extends
         widget.stateChanged();
     }
 
+    /**
+     * Get active implementation of the sketch.
+     * 
+     * @param codeClass
+     *            Active processing java code class identifier
+     * @return
+     */
     public abstract ProcessingCode getProcessingJavaCode(String codeClass);
 
     public VProcessing getWidget() {

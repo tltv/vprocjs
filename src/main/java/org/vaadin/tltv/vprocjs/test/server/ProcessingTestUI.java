@@ -25,6 +25,12 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
+/**
+ * Test bench UI for ProcessingJs.
+ * 
+ * @author Tltv
+ * 
+ */
 public class ProcessingTestUI extends UI {
 
     private static final long serialVersionUID = -2006622339916372647L;
@@ -152,7 +158,17 @@ public class ProcessingTestUI extends UI {
         return null;
     }
 
-    private String getSourcePath() {
+    /**
+     * Returns path to the Java source folder. By default, returns absolute path
+     * pointing to webapp/WEB-INF/src. Absolute path is detected dynamically and
+     * it may be null when web container runs the application within a war
+     * package.</br></br> Alternatively you can use
+     * <code>vprocjs.properties</code> file in the class path and set a
+     * <code>src.tree.path</code> property pointing to Java source folder.
+     * 
+     * @return Absolute path to the Java source files.
+     */
+    public String getSourcePath() {
         String path = getSession().getService().getBaseDirectory()
                 .getAbsolutePath()
                 + File.separator + "WEB-INF" + File.separator + "src";

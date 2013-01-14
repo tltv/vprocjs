@@ -1,16 +1,5 @@
 package org.vaadin.tltv.vprocjs.test.server;
 
-import com.vaadin.data.Property.ValueChangeEvent;
-import com.vaadin.data.Property.ValueChangeListener;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.Panel;
-import com.vaadin.ui.TextArea;
-import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Window;
-
 import org.vaadin.tltv.vprocjs.component.Processing;
 import org.vaadin.tltv.vprocjs.component.Processing.ClickEvent;
 import org.vaadin.tltv.vprocjs.component.Processing.KeyPressEvent;
@@ -27,22 +16,43 @@ import org.vaadin.tltv.vprocjs.component.Processing.MouseReleaseListener;
 import org.vaadin.tltv.vprocjs.component.Processing.MouseWheelEvent;
 import org.vaadin.tltv.vprocjs.component.Processing.MouseWheelListener;
 
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.Property.ValueChangeListener;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.Panel;
+import com.vaadin.ui.TextArea;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Window;
+
+/**
+ * UI for showing how the Processing component works with the plain Processing
+ * language. </br>View contains a single TextBox where user may write some
+ * Processing language code. Code changes are reflected immediately in a main
+ * sub-window or multiple secondary sub-windows.</br> Demonstrates also some
+ * basic event handling within the sub-windows.</br></br> This test doesn't
+ * require any client-side coding.
+ * 
+ * @author Tltv
+ * 
+ */
 public class ProcessingCodeTest extends VerticalLayout implements
         ValueChangeListener, MouseClickListener, MousePressListener,
         MouseReleaseListener, KeyPressListener, MouseEnterListener,
         MouseLeaveListener, MouseWheelListener {
 
-    private TextArea text;
+    private final TextArea text;
 
     private Processing pro;
 
-    private Panel panel;
+    private final Panel panel;
 
     private Window popup;
 
-    private Button openInNewPopup;
-
-    private Button refreshMainPopup;
+    private final Button openInNewPopup;
+    private final Button refreshMainPopup;
 
     private final static String originalCode = "float[] x = new float[20];\n"
             + "float[] y = new float[20];\n" + "float segLength = 10;\n\n"
