@@ -20,13 +20,18 @@ public class ProcessingSimpleJavaCodeTest extends VerticalLayout {
         CustomProcessingCodeExtension codeExtension = new CustomProcessingCodeExtension();
         codeExtension.extend(pro);
 
-        final Label codeLabel = new Label();
+        final Label clientCodeLabel = new Label("Sketch: "
+                + ProcessingCodeImplTest.class.getName());
+        final Label serverCodeLabel = new Label("Server-side UI code: "
+                + this.getClass().getName());
 
         codeExtension.setProcessingJavaCodeClass(ProcessingCodeImplTest.class
                 .getName());
-        codeLabel.setValue(ProcessingCodeImplTest.class.getName());
 
+        addComponent(new Label(
+                "Canvas below is rendered by processing.js library. Sketch however is written in Java. Component allows you to write sketch in a single client-side Java file."));
         addComponent(pro);
-        addComponent(codeLabel);
+        addComponent(clientCodeLabel);
+        addComponent(serverCodeLabel);
     }
 }

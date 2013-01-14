@@ -24,16 +24,22 @@ public class ProcessingSwitchJavaCodeTest extends VerticalLayout {
         final CustomProcessingCodeExtension codeExtension = new CustomProcessingCodeExtension();
         codeExtension.extend(pro);
 
-        final Label codeLabel = new Label();
+        final Label clientCodeLabel = new Label();
+        final Label serverCodeLabel = new Label("Server-side UI code: "
+                + this.getClass().getName());
 
         codeExtension.setProcessingJavaCodeClass(ProcessingJavaCode1.class
                 .getName());
-        codeLabel.setValue(ProcessingJavaCode1.class.getName());
+        clientCodeLabel.setValue("Sketch: "
+                + ProcessingJavaCode1.class.getName());
 
+        addComponent(new Label(
+                "Canvas below is rendered by processing.js library. Sketch however is written in Java. Component allows you to switch the Java sketch on the fly and share variables between sketches."));
         addComponent(pro);
-        addComponent(codeLabel);
+        addComponent(clientCodeLabel);
+        addComponent(serverCodeLabel);
 
-        Button switchButton = new Button("Switch Java code on fly");
+        Button switchButton = new Button("Switch Java sketch on fly");
         switchButton.addClickListener(new ClickListener() {
 
             @Override
@@ -43,12 +49,14 @@ public class ProcessingSwitchJavaCodeTest extends VerticalLayout {
                     codeExtension
                             .setProcessingJavaCodeClass(ProcessingJavaCode2.class
                                     .getName());
-                    codeLabel.setValue(ProcessingJavaCode2.class.getName());
+                    clientCodeLabel.setValue("Sketch: "
+                            + ProcessingJavaCode2.class.getName());
                 } else {
                     codeExtension
                             .setProcessingJavaCodeClass(ProcessingJavaCode1.class
                                     .getName());
-                    codeLabel.setValue(ProcessingJavaCode1.class.getName());
+                    clientCodeLabel.setValue("Sketch: "
+                            + ProcessingJavaCode1.class.getName());
                 }
             }
         });

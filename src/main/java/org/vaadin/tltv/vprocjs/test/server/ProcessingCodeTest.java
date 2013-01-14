@@ -18,10 +18,14 @@ import org.vaadin.tltv.vprocjs.component.Processing.MouseWheelListener;
 
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
+import com.vaadin.server.ExternalResource;
+import com.vaadin.shared.ui.BorderStyle;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Link;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
@@ -48,11 +52,13 @@ public class ProcessingCodeTest extends VerticalLayout implements
     private Processing pro;
 
     private final Panel panel;
+    private final GridLayout grid;
 
     private Window popup;
 
     private final Button openInNewPopup;
     private final Button refreshMainPopup;
+    private final Link referenceLink;
 
     private final static String originalCode = "float[] x = new float[20];\n"
             + "float[] y = new float[20];\n" + "float segLength = 10;\n\n"
@@ -81,9 +87,13 @@ public class ProcessingCodeTest extends VerticalLayout implements
             + "    ellipse(segLength, -2, 3, 3);\n"
             + "    ellipse(segLength, 2, 3, 3);\n  }\n" + "  popMatrix();\n}";
 
+    private final String description = "Type in some Processing code and the processing.js renders it into the sub-window.";
+
     public ProcessingCodeTest() {
-        panel = new Panel("Vaadin component using Processing.js");
-        panel.setContent(new GridLayout(2, 2));
+        panel = new Panel();
+        grid = new GridLayout(2, 4);
+        grid.setSpacing(true);
+        panel.setContent(grid);
 
         pro = newProcessingWidget(originalCode);
 
@@ -123,6 +133,12 @@ public class ProcessingCodeTest extends VerticalLayout implements
                         refreshMainSubWindow(code);
                     }
                 });
+
+        referenceLink = new Link(
+                "More code samples... (copy & paste code here)",
+                new ExternalResource("http://processingjs.org/learning/basic/"),
+                "_blank", 0, 0, BorderStyle.DEFAULT);
+
         constructPanel();
         popup = openpopup(popup, pro);
 
@@ -130,14 +146,20 @@ public class ProcessingCodeTest extends VerticalLayout implements
     }
 
     private void constructPanel() {
-        ((GridLayout) panel.getContent()).removeAllComponents();
+        grid.removeAllComponents();
         VerticalLayout buttons = new VerticalLayout();
+        buttons.setSpacing(true);
         buttons.addComponent(refreshMainPopup);
         buttons.addComponent(openInNewPopup);
+        buttons.addComponent(referenceLink);
 
-        ((GridLayout) panel.getContent()).addComponent(text, 0, 0, 0, 1);
-        ((GridLayout) panel.getContent()).addComponent(buttons, 1, 0);
-        panel.markAsDirty();
+        Label descriptionLabel = new Label(description);
+        grid.addComponent(descriptionLabel, 0, 0, 1, 0);
+        grid.addComponent(text, 0, 1, 0, 2);
+        grid.addComponent(buttons, 1, 1);
+
+        grid.addComponent(new Label("Server side sources: "
+                + ProcessingCodeTest.class.getName()), 0, 3, 1, 3);
     }
 
     private Window openpopup(Window target, Processing newPro) {

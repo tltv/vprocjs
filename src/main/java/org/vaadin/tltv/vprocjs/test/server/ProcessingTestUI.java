@@ -17,6 +17,7 @@ import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
 import com.vaadin.ui.Component;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.TabSheet;
@@ -37,7 +38,25 @@ public class ProcessingTestUI extends UI {
 
     @Override
     protected void init(VaadinRequest request) {
-        setContent(new VerticalLayout());
+        VerticalLayout layout = new VerticalLayout();
+        layout.setSpacing(true);
+        setContent(layout);
+
+        HorizontalLayout captionLayout = new HorizontalLayout();
+        captionLayout.setSpacing(true);
+        captionLayout.setMargin(new MarginInfo(true, false, false, true));
+
+        Label caption = new Label(
+                "<span style='font-size:24px;'>ProcessingJs</span>",
+                ContentMode.HTML);
+        captionLayout.addComponent(caption);
+
+        Label shortDescription = new Label(
+                "<span style='color:gray;font-size:9px;vertical-align:bottom;'>Vaadin 7 component wrapping the <a href='http://processingjs.org' target='_blank'>processing.js</a> javascript library</span>",
+                ContentMode.HTML);
+        captionLayout.addComponent(shortDescription);
+
+        layout.addComponent(captionLayout);
 
         TabSheet tabsheet = new TabSheet();
         tabsheet.addTab(new ProcessingCodeTest(), "Run with Processing code");
@@ -45,8 +64,8 @@ public class ProcessingTestUI extends UI {
                 "Run with Java code");
         tabsheet.addTab(new ProcessingSwitchJavaCodeTest(),
                 "Switch Java code on fly");
-        ((VerticalLayout) getContent()).addComponent(tabsheet);
-        ((VerticalLayout) getContent()).addComponent(createSourceBrowser());
+        layout.addComponent(tabsheet);
+        layout.addComponent(createSourceBrowser());
     }
 
     private Component createSourceBrowser() {
