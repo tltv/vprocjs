@@ -13,11 +13,22 @@ import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomComponent;
 
+/**
+ * Server side Vaadin component wrapping processing.js javascript library.
+ * </br></br>
+ * 
+ * Requires that processing-1.4.1.js file exist in the
+ * org.vaadin.tltv.vprocjs.component package.
+ * 
+ * @author Tltv
+ * 
+ */
 @JavaScript({ "processing-1.4.1.js" })
 public class Processing extends CustomComponent implements ProcessingServerRpc {
 
     private static final long serialVersionUID = 1L;
 
+    /** Current Processing Visualization Language code. */
     private String processingCode = "";
 
     private int mouseX = 0;
@@ -138,7 +149,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         fireEvent(new Processing.MouseWheelEvent(this, up, deltaY));
     }
 
-    public void addListener(MouseClickListener listener) {
+    public void addMouseClickListener(MouseClickListener listener) {
         if (!mouseClickListeners.contains(listener)) {
             mouseClickListeners.add(listener);
             getState().setMouseClickListened(true);
@@ -146,7 +157,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void removeListener(MouseClickListener listener) {
+    public void removeMouseClickListener(MouseClickListener listener) {
         removeListener(ClickEvent.class, listener, MOUSE_CLICK_METHOD);
         mouseClickListeners.remove(listener);
         if (mouseClickListeners.isEmpty()) {
@@ -154,7 +165,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void addListener(MousePressListener listener) {
+    public void addMousePressListener(MousePressListener listener) {
         if (!mousePressListeners.contains(listener)) {
             mousePressListeners.add(listener);
             getState().setMousePressListened(true);
@@ -162,7 +173,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void removeListener(MousePressListener listener) {
+    public void removeMousePressListener(MousePressListener listener) {
         removeListener(MousePressEvent.class, listener, MOUSE_PRESS_METHOD);
         mousePressListeners.remove(listener);
         if (mousePressListeners.isEmpty()) {
@@ -170,7 +181,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void addListener(MouseReleaseListener listener) {
+    public void addMouseReleaseListener(MouseReleaseListener listener) {
         if (!mouseReleaseListeners.contains(listener)) {
             mouseReleaseListeners.add(listener);
             getState().setMouseReleaseListened(true);
@@ -178,7 +189,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void removeListener(MouseReleaseListener listener) {
+    public void removeMouseReleaseListener(MouseReleaseListener listener) {
         removeListener(MouseReleaseEvent.class, listener, MOUSE_RELEASE_METHOD);
         mouseReleaseListeners.remove(listener);
         if (mouseReleaseListeners.isEmpty()) {
@@ -186,7 +197,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void addListener(KeyPressListener listener) {
+    public void addKeyPressListener(KeyPressListener listener) {
         if (!keyPressListeners.contains(listener)) {
             keyPressListeners.add(listener);
             getState().setKeyPressListened(true);
@@ -194,7 +205,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void removeListener(KeyPressListener listener) {
+    public void removeKeyPressListener(KeyPressListener listener) {
         removeListener(KeyPressEvent.class, listener, KEY_PRESS_METHOD);
         keyPressListeners.remove(listener);
         if (keyPressListeners.isEmpty()) {
@@ -202,7 +213,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void addListener(KeyReleaseListener listener) {
+    public void addKeyReleaseListener(KeyReleaseListener listener) {
         if (!keyReleaseListeners.contains(listener)) {
             keyReleaseListeners.add(listener);
             getState().setKeyReleaseListened(true);
@@ -210,7 +221,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void removeListener(KeyReleaseListener listener) {
+    public void removeKeyReleaseListener(KeyReleaseListener listener) {
         removeListener(KeyReleaseEvent.class, listener, KEY_RELEASE_METHOD);
         keyReleaseListeners.remove(listener);
         if (keyReleaseListeners.isEmpty()) {
@@ -218,7 +229,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void addListener(MouseEnterListener listener) {
+    public void addMouseEnterListener(MouseEnterListener listener) {
         if (!mouseEnterListeners.contains(listener)) {
             mouseEnterListeners.add(listener);
             getState().setMouseEnterListened(true);
@@ -226,7 +237,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void removeListener(MouseEnterListener listener) {
+    public void removeMouseEnterListener(MouseEnterListener listener) {
         removeListener(MouseEnterEvent.class, listener, MOUSE_ENTER_METHOD);
         mouseEnterListeners.remove(listener);
         if (mouseEnterListeners.isEmpty()) {
@@ -234,7 +245,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void addListener(MouseLeaveListener listener) {
+    public void addMouseLeaveListener(MouseLeaveListener listener) {
         if (!mouseLeaveListeners.contains(listener)) {
             mouseLeaveListeners.add(listener);
             getState().setMouseLeaveListened(true);
@@ -242,7 +253,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void removeListener(MouseLeaveListener listener) {
+    public void removeMouseLeaveListener(MouseLeaveListener listener) {
         removeListener(MouseLeaveEvent.class, listener, MOUSE_LEAVE_METHOD);
         mouseLeaveListeners.remove(listener);
         if (mouseLeaveListeners.isEmpty()) {
@@ -250,7 +261,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void addListener(MouseWheelListener listener) {
+    public void addMouseWheelListener(MouseWheelListener listener) {
         if (!mouseWheelListeners.contains(listener)) {
             mouseWheelListeners.add(listener);
             getState().setMouseWheelListened(true);
@@ -258,7 +269,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
-    public void removeListener(MouseWheelListener listener) {
+    public void removeMouseWheelListener(MouseWheelListener listener) {
         removeListener(MouseWheelEvent.class, listener, MOUSE_WHEEL_METHOD);
         mouseWheelListeners.remove(listener);
         if (mouseWheelListeners.isEmpty()) {
@@ -266,18 +277,38 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
         }
     }
 
+    /**
+     * Get mouse x-coordinate.
+     * 
+     * @return
+     */
     public int getMouseX() {
         return mouseX;
     }
 
+    /**
+     * Set mouse x-coordinate.
+     * 
+     * @param mouseX
+     */
     public void setMouseX(int mouseX) {
         this.mouseX = mouseX;
     }
 
+    /**
+     * Get mouse y-coordinate.
+     * 
+     * @return
+     */
     public int getMouseY() {
         return mouseY;
     }
 
+    /**
+     * Set mouse y-coordinate.
+     * 
+     * @param mouseX
+     */
     public void setMouseY(int mouseY) {
         this.mouseY = mouseY;
     }

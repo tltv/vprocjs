@@ -5,6 +5,10 @@ import java.util.Map;
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseOutEvent;
@@ -22,9 +26,26 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.client.ApplicationConnection;
 
+/**
+ * Client side GWT widget wrapping processing.js javascript library. Made for
+ * Vaadin Framework 7.</br></br>
+ * 
+ * By default, this widget has a simple sketch written with Processing
+ * Visualization Language that draws a big X over the canvas.</br></br>
+ * 
+ * This default sketch can be overridden by the
+ * {@link #setProcessingCode(String)} method, if you want to use Processing
+ * Visualization Language.</br>
+ * 
+ * Or alternatively by {@link #setProcessingJavaCode(ProcessingCode)} method, if
+ * you want to write sketch with Java (with GWT restrictions).
+ * 
+ * @author Tltv
+ * 
+ */
 public class VProcessing extends Composite implements ClickHandler,
         MouseWheelHandler, MouseUpHandler, MouseDownHandler, MouseOutHandler,
-        MouseOverHandler {
+        MouseOverHandler, KeyPressHandler, KeyUpHandler {
 
     public static final String CLASSNAME = "VProcessing";
 
@@ -36,13 +57,11 @@ public class VProcessing extends Composite implements ClickHandler,
     private final VerticalPanel panel;
 
     private ApplicationConnection client;
-
     private String uidlId;
 
     protected Canvas canvas;
 
     private int mouseX = 0;
-
     private int mouseY = 0;
 
     /**
@@ -53,7 +72,7 @@ public class VProcessing extends Composite implements ClickHandler,
     private boolean useProcessingCode = true;
 
     /**
-     * Default Processing code
+     * Default Processing Visualization Language code.
      */
     private final String defaultCode = "void setup() {\n" + "size(300, 250);\n"
             + "smooth();\n" + "}\n" + "void draw() {\n"
@@ -65,21 +84,15 @@ public class VProcessing extends Composite implements ClickHandler,
     private String processingCode = null;
 
     private boolean mouseClickListened = false;
-
     private boolean mousePressListened = false;
-
     private boolean mouseReleaseListened = false;
-
     private boolean mouseEnterListened = false;
-
     private boolean mouseLeaveListened = false;
-
     private boolean mouseWheelListened = false;
-
     private boolean keyPressListened = false;
-
     private boolean keyReleaseListened = false;
 
+    /** Processing Java sketch instance. */
     private ProcessingCode processingJavaCode;
     private boolean processingJavaCodeChanged = false;
     private Map<Object, Object> sharedVariables = null;
@@ -103,11 +116,14 @@ public class VProcessing extends Composite implements ClickHandler,
         canvas.addHandler(this, MouseOutEvent.getType());
         canvas.addHandler(this, MouseOverEvent.getType());
         canvas.addHandler(this, MouseWheelEvent.getType());
+        canvas.addHandler(this, KeyPressEvent.getType());
+        canvas.addHandler(this, KeyUpEvent.getType());
 
         initWidget(panel);
 
         setStyleName(CLASSNAME);
-        canvas.sinkEvents(Event.MOUSEEVENTS + Event.ONMOUSEWHEEL);
+        canvas.sinkEvents(Event.MOUSEEVENTS + Event.ONMOUSEWHEEL
+                + Event.KEYEVENTS);
     }
 
     public void setRpc(ProcessingServerRpc rpc) {
@@ -123,6 +139,9 @@ public class VProcessing extends Composite implements ClickHandler,
         canvas.setHeight(height + "px");
     }
 
+    /**
+     * Called when state is changed. Basically when server has changed it.
+     */
     public void stateChanged() {
         if ("".equals(processingCode)) {
             processingCode = null;
@@ -136,7 +155,7 @@ public class VProcessing extends Composite implements ClickHandler,
     }
 
     /**
-     * Get Processing code.
+     * Get Processing Visualization Language code.
      * 
      * @return String
      */
@@ -145,7 +164,7 @@ public class VProcessing extends Composite implements ClickHandler,
     }
 
     /**
-     * Set Processing code.
+     * Set Processing Visualization Language code.
      * 
      * @return
      */
@@ -344,6 +363,10 @@ public class VProcessing extends Composite implements ClickHandler,
                                                                }
                                                                        }-*/;
 
+    /**
+     * Initializes the canvas and also the ProcessingJsObject. Detects the
+     * changed sketch and updates the component.
+     */
     private void initCanvas() {
         if (canvas.getStyleName() == null || canvas.getStyleName().length() < 1) {
             return;
@@ -474,6 +497,20 @@ public class VProcessing extends Composite implements ClickHandler,
         }
     }
 
+    @Override
+    public void onKeyUp(KeyUpEvent keyUpEvent) {
+        if (keyReleaseListened) {
+            rpc.fireKeyRelease();
+        }
+    }
+
+    @Override
+    public void onKeyPress(KeyPressEvent keyPressEvent) {
+        if (keyPressListened) {
+            rpc.fireKeyPress(keyPressEvent.getCharCode());
+        }
+    }
+
     /**
      * Invoked on any key press.
      * 
@@ -512,8 +549,8 @@ public class VProcessing extends Composite implements ClickHandler,
      *****************************************************/
 
     /**
-     * Processing setup. When useProcessingCode is false, this method may be
-     * overridden by the class extending this Widget.
+     * Processing setup-method. This method gets called first when
+     * {@link #processingJavaCode} is given.
      */
     public void setup() {
         if (processingJavaCode != null) {
@@ -524,8 +561,8 @@ public class VProcessing extends Composite implements ClickHandler,
     };
 
     /**
-     * Processing draw. When useProcessingCode is false, this method may be
-     * overridden by the class extending this Widget.
+     * Processing draw-method. This method gets called for every frame when
+     * {@link #processingJavaCode} is given.
      */
     public void draw() {
         if (processingJavaCode != null) {
@@ -536,7 +573,8 @@ public class VProcessing extends Composite implements ClickHandler,
     /* EVENT HANDLERS */
 
     /**
-     * Override this when processing code is not used.
+     * Processing mouseMoved-method. This method gets called when ever mouse is
+     * moved over the canvas and {@link #processingJavaCode} is given.
      */
     public void mouseMoved() {
         if (processingJavaCode != null) {
@@ -546,7 +584,8 @@ public class VProcessing extends Composite implements ClickHandler,
     };
 
     /**
-     * Override this when processing code is not used.
+     * Processing mouseDragged-method. This method gets called when mouse is
+     * dragged and {@link #processingJavaCode} is given.
      */
     public void mouseDragged() {
         if (processingJavaCode != null) {
@@ -556,7 +595,8 @@ public class VProcessing extends Composite implements ClickHandler,
     };
 
     /**
-     * Override this when processing code is not used.
+     * Processing mousePressed-method. This method gets called when mouse button
+     * is pressed and {@link #processingJavaCode} is given.
      */
     public void mousePressed() {
         if (processingJavaCode != null) {
@@ -566,7 +606,8 @@ public class VProcessing extends Composite implements ClickHandler,
     };
 
     /**
-     * Override this when processing code is not used.
+     * Processing mouseClicked-method. This method gets called when mouse button
+     * is clicked and {@link #processingJavaCode} is given.
      */
     public void mouseClicked() {
         if (processingJavaCode != null) {
@@ -576,7 +617,8 @@ public class VProcessing extends Composite implements ClickHandler,
     };
 
     /**
-     * Override this when processing code is not used.
+     * Processing mouseReleased-method. This method gets called when mouse
+     * button is released and {@link #processingJavaCode} is given.
      */
     public void mouseReleased() {
         if (processingJavaCode != null) {
@@ -586,7 +628,8 @@ public class VProcessing extends Composite implements ClickHandler,
     };
 
     /**
-     * Override this when processing code is not used.
+     * Processing keyPressed-method. This method gets called when key is pressed
+     * and {@link #processingJavaCode} is given.
      */
     public void keyPressed() {
         if (processingJavaCode != null) {
@@ -596,7 +639,8 @@ public class VProcessing extends Composite implements ClickHandler,
     };
 
     /**
-     * Override this when processing code is not used.
+     * Processing keyReleased-method. This method gets called when key is
+     * released and {@link #processingJavaCode} is given.
      */
     public void keyReleased() {
         if (processingJavaCode != null) {
@@ -606,7 +650,8 @@ public class VProcessing extends Composite implements ClickHandler,
     };
 
     /**
-     * Override this when processing code is not used.
+     * Processing keyTyped-method. This method gets called when key is typed and
+     * {@link #processingJavaCode} is given.
      */
     public void keyTyped() {
         if (processingJavaCode != null) {

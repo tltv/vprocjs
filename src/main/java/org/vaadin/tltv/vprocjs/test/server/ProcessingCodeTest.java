@@ -186,12 +186,12 @@ public class ProcessingCodeTest extends VerticalLayout implements
     private Processing newProcessingWidget(String code) {
         Processing p = new Processing();
         p.setProcessingCode(code);
-        p.addListener((MouseClickListener) this);
-        p.addListener((MousePressListener) this);
-        p.addListener((KeyPressListener) this);
-        p.addListener((MouseEnterListener) this);
-        p.addListener((MouseLeaveListener) this);
-        p.addListener((MouseWheelListener) this);
+        p.addMouseClickListener(this);
+        p.addMousePressListener(this);
+        p.addKeyPressListener(this);
+        p.addMouseEnterListener(this);
+        p.addMouseLeaveListener(this);
+        p.addMouseWheelListener(this);
         return p;
     }
 

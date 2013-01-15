@@ -3,7 +3,7 @@ Vaadin ProcessingJs  (vprocjs)
 
 Vaadin 7 component wrapping processing.js javascript library.
 
-Component's Java API allows you to use either Processing language or Java for the sketches.  
+Component's Java API allows you to use either [Processing Visualization Language](http://processing.org) or Java for the sketches.  
 Using Java sketch gives you more control as you can write some custom interaction between the client and server.
 
 Supported processing.js functions can be found from the ProcessingJavascriptObject class.   
