@@ -13,6 +13,9 @@ Currently supports browsers like IE 9, FireFox 18, Chrome.
 Requires HTML5 support as this component uses HTML5 Canvas.
 
 
+[Show the demo](http://tomivirtanen.virtuallypreinstalled.com/vprocjs/)
+
+
 Dependencies
 ------------
 
