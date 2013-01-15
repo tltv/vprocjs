@@ -38,6 +38,49 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                     this.bezier(x1, y1, x2, y2, x3, y3, x4, y4);
                                     }-*/;
 
+    public final native void bezierDetail(int detail) /*-{
+                                                      this.bezierDetail(detail);
+                                                      }-*/;
+
+    public final native void bezierPoint(int a, int b, int c, int d, float t) /*-{
+                                                                              this.bezierPoint(a, b, c, d, t);
+                                                                              }-*/;
+
+    public final native void bezierPoint(float a, float b, float c, float d,
+            float t) /*-{
+                     this.bezierPoint(a, b, c, d, t);
+                     }-*/;
+
+    public final native void bezierTangent(int a, int b, int c, int d, float t) /*-{
+                                                                                this.bezierTangent(a, b, c, d, t);
+                                                                                }-*/;
+
+    public final native void bezierTangent(float a, float b, float c, float d,
+            float t) /*-{
+                     this.bezierTangent(a, b, c, d, t);
+                     }-*/;
+
+    public final native void curve(int x1, int y1, int x2, int y2, int x3,
+            int y3, int x4, int y4) /*-{
+                                    this.curve(x1, y1, x2, y2, x3, y3, x4, y4);
+                                    }-*/;
+
+    public final native void curve(float x1, float y1, float x2, float y2,
+            float x3, float y3, float x4, float y4) /*-{
+                                                    this.curve(x1, y1, x2, y2, x3, y3, x4, y4);
+                                                    }-*/;
+
+    public final native void curve(int x1, int y1, int z1, int x2, int y2,
+            int z2, int x3, int y3, int z3, int x4, int y4, int z4) /*-{
+                                                                    this.curve(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
+                                                                    }-*/;
+
+    public final native void curve(float x1, float y1, float z1, float x2,
+            float y2, float z2, float x3, float y3, float z3, float x4,
+            float y4, float z4) /*-{
+                                this.curve(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
+                                }-*/;
+
     public final native void line(int x1, int y1, int x2, int y2) /*-{
                                                                   this.line(x1, y1, x2, y2);
                                                                   }-*/;

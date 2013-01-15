@@ -74,8 +74,17 @@ public class ProcessingTestUI extends UI {
 
         c.setFilter(new FilenameFilter() {
             @Override
-            public boolean accept(File f, String s) {
-                return true;
+            public boolean accept(File dir, String s) {
+                boolean isfile = s.endsWith(".java") || s.endsWith(".xml")
+                        || s.endsWith(".js");
+                if (isfile) {
+                    return true;
+                }
+                File f = new File(dir.getAbsolutePath() + File.separator + s);
+                if (f != null && f.isDirectory()) {
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -190,7 +199,7 @@ public class ProcessingTestUI extends UI {
     public String getSourcePath() {
         String path = getSession().getService().getBaseDirectory()
                 .getAbsolutePath()
-                + File.separator + "WEB-INF" + File.separator + "src";
+                + File.separator + "WEB-INF" + File.separator + "classes";
         try {
             ResourceBundle bundle = ResourceBundle.getBundle("vprocjs");
             if (bundle != null) {
