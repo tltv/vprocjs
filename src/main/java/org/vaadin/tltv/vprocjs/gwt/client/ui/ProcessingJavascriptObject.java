@@ -81,6 +81,28 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                 this.curve(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
                                 }-*/;
 
+    public final native void curveDetail(int detail) /*-{
+                                                     this.curveDetail(detail);
+                                                     }-*/;
+
+    public final native void curvePoint(int a, int b, int c, int d, float t) /*-{
+                                                                             this.curvePoint(a, b, c, d, t);
+                                                                             }-*/;
+
+    public final native void curvePoint(float a, float b, float c, float d,
+            float t) /*-{
+                     this.curvePoint(a, b, c, d, t);
+                     }-*/;
+
+    public final native void curveTangent(float a, float b, float c, float d,
+            float t) /*-{
+                     this.curveTangent(a, b, c, d, t);
+                     }-*/;
+
+    public final native void curveTangent(int a, int b, int c, int d, float t) /*-{
+                                                                               this.curveTangent(a, b, c, d, t);
+                                                                               }-*/;
+
     public final native void line(int x1, int y1, int x2, int y2) /*-{
                                                                   this.line(x1, y1, x2, y2);
                                                                   }-*/;
@@ -93,14 +115,6 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
             int start, int stop) /*-{
                                  this.arc(x, y, width, height, start, stop);
                                  }-*/;
-
-    public final native void set(int x, int y, Object obj) /*-{
-                                                           this.set(x, y, obj);
-                                                           }-*/;
-
-    public final native Object get(int x, int y) /*-{
-                                                 return this.get(x, y);
-                                                 }-*/;
 
     public final native void point(int x, int y) /*-{
                                                  this.point(x, y);
@@ -360,17 +374,33 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                  this.rotate(angle);
                                                  }-*/;
 
+    public final native void rotateX(float angle) /*-{
+                                                  this.rotateX(angle);
+                                                  }-*/;
+
+    public final native void rotateY(float angle) /*-{
+                                                  this.rotateY(angle);
+                                                  }-*/;
+
+    public final native void rotateZ(float angle) /*-{
+                                                  this.rotateZ(angle);
+                                                  }-*/;
+
     public final native float round(float number) /*-{
                                                   return this.round(number);
                                                   }-*/;
 
-    public final native void scale(int x, int y) /*-{
-                                                 this.scale(x, y);
-                                                 }-*/;
+    public final native void scale(float size) /*-{
+                                               this.scale(size);
+                                               }-*/;
 
     public final native void scale(float x, float y) /*-{
                                                      this.scale(x, y);
                                                      }-*/;
+
+    public final native void scale(float x, float y, float z) /*-{
+                                                              this.scale(x, y, z);
+                                                              }-*/;
 
     public final native int second() /*-{
                                      return this.second();
@@ -391,6 +421,14 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
     public final native void translate(float x, float y) /*-{
                                                          this.translate(x, y);
                                                          }-*/;
+
+    public final native void translate(int x, int y, int z) /*-{
+                                                            this.translate(x, y, z);
+                                                            }-*/;
+
+    public final native void translate(float x, float y, float z) /*-{
+                                                                  this.translate(x, y, z);
+                                                                  }-*/;
 
     public final native void vertex(float x, float y, float x2, float y2,
             float x3, float y3) /*-{
@@ -425,21 +463,119 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                             this.text(str, x, y);
                                                             }-*/;
 
+    public final native void text(String str, float x, float y) /*-{
+                                                                this.text(str, x, y);
+                                                                }-*/;
+
+    public final native void text(String str, int x, int y, int z) /*-{
+                                                                   this.text(str, x, y, z);
+                                                                   }-*/;
+
+    public final native void text(String str, float x, float y, float z) /*-{
+                                                                         this.text(str, x, y, z);
+                                                                         }-*/;
+
+    public final native void text(String str, int x, int y, int width,
+            int height) /*-{
+                        this.text(str, x, y, width, height);
+                        }-*/;
+
+    public final native void text(String str, float x, float y, float width,
+            float height) /*-{
+                          this.text(str, x, y, width, height);
+                          }-*/;
+
+    public final native void text(String str, int x, int y, int width,
+            int height, int z) /*-{
+                               this.text(str, x, y, width, height, z);
+                               }-*/;
+
+    public final native void text(String str, float x, float y, float width,
+            float height, float z) /*-{
+                                   this.text(str, x, y, width, height, z);
+                                   }-*/;
+
     public final native void textSize(int size) /*-{
-                                                this.textSize(str, size);
+                                                this.textSize(size);
                                                 }-*/;
+
+    public final native void textSize(float size) /*-{
+                                                  this.textSize(size);
+                                                  }-*/;
+
+    public final native void textAlign(Object align) /*-{
+                                                     this.textAlign(align);
+                                                     }-*/;
+
+    public final native void textAlign(Object align, Object valign) /*-{
+                                                                    this.textAlign(align, valign);
+                                                                    }-*/;
+
+    public final native void textLeading(int dist) /*-{
+                                                   this.textLeading(dist);
+                                                   }-*/;
+
+    public final native void textLeading(float dist) /*-{
+                                                     this.textLeading(dist);
+                                                     }-*/;
+
+    public final native void textMode(Object mode) /*-{
+                                                   this.textMode(mode);
+                                                   }-*/;
 
     public final native void textFont(Object name, int size) /*-{
                                                              this.textFont(name, size);
                                                              }-*/;
 
-    public final native int loadFont(String name) /*-{
-                                                  return this.loadFont(name);
-                                                  }-*/;
+    public final native void textFont(Object name, float size) /*-{
+                                                               this.textFont(name, size);
+                                                               }-*/;
 
-    public final native Object loadImage(String name) /*-{
-                                                      return this.loadImage(name);
+    public final native void textWidth(String data) /*-{
+                                                    this.textWidth(data);
+                                                    }-*/;
+
+    public final native float textAscent() /*-{
+                                                      return this.textAscent();
                                                       }-*/;
+
+    public final native float textDescent() /*-{
+                                            return this.textDescent();
+                                            }-*/;
+
+    public final native Object loadFont(String fontname) /*-{
+                                                         return this.loadFont(fontname);
+                                                         }-*/;
+
+    public final native Object createFont(String name, float size) /*-{
+                                                                   return this.createFont(name, size);
+                                                                   }-*/;
+
+    public final native Object createFont(String name, float size,
+            boolean smooth) /*-{
+                            return this.createFont(name, size, smooth);
+                            }-*/;
+
+    public final native Object createFont(String name, float size,
+            boolean smooth, char[] charset) /*-{
+                                            return this.createFont(name, size, smooth, charset);
+                                            }-*/;
+
+    public final native Object loadImage(String filename) /*-{
+                                                          return this.loadImage(filename);
+                                                          }-*/;
+
+    public final native void noTint() /*-{
+                                        this.noTint();
+                                        }-*/;
+
+    public final native Object requestImage(String filename) /*-{
+                                                             return this.requestImage(filename);
+                                                             }-*/;
+
+    public final native Object requestImage(String filename, String extension) /*-{
+                                                                               return this.requestImage(filename, extension);
+                                                                               }-*/;
 
     public final native void exit() /*-{
                                     this.exit();
@@ -449,17 +585,121 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                              this.image(img, x, y);
                                                              }-*/;
 
-    public final native void image(Object img, int x, int y, int w, int h) /*-{
-                                                                           this.image(img, x, y, w, h);
-                                                                           }-*/;
+    public final native void image(Object img, float x, float y) /*-{
+                                                                 this.image(img, x, y);
+                                                                 }-*/;
 
-    public final native void tint(int rgb, int a) /*-{
-                                                  this.tint(rgb, a);
-                                                  }-*/;
+    public final native void image(Object img, int x, int y, int width,
+            int height) /*-{
+                        this.image(img, x, y, width, height);
+                        }-*/;
+
+    public final native void image(Object img, float x, float y, float width,
+            float height) /*-{
+                          this.image(img, x, y, width, height);
+                          }-*/;
+
+    public final native void imageMode(Object mode) /*-{
+                                                    this.imageMode(mode);
+                                                    }-*/;
+
+    public final native void tint(int gray) /*-{
+                                            this.tint(gray);
+                                            }-*/;
+
+    public final native void tint(float gray) /*-{
+                                              this.tint(gray);
+                                              }-*/;
+
+    public final native void tint(int gray, int a) /*-{
+                                                   this.tint(gray, a);
+                                                   }-*/;
+
+    public final native void tint(float gray, float a) /*-{
+                                                       this.tint(gray, a);
+                                                       }-*/;
+
+    public final native void tint(int r, int g, int b) /*-{
+                                                       this.tint(r, g, b);
+                                                       }-*/;
+
+    public final native void tint(float r, float g, float b) /*-{
+                                                             this.tint(r, g, b);
+                                                             }-*/;
+
+    public final native void tint(int r, int g, int b, int a) /*-{
+                                                              this.tint(r, g, b, a);
+                                                              }-*/;
+
+    public final native void tint(float r, float g, float b, float a) /*-{
+                                                                      this.tint(r, g, b, a);
+                                                                      }-*/;
+
+    public final native void tint(Object color) /*-{
+                                                this.tint(color);
+                                                }-*/;
+
+    public final native void tint(Object color, int a) /*-{
+                                                       this.tint(color, a);
+                                                       }-*/;
+
+    public final native void tint(Object color, float a) /*-{
+                                                         this.tint(color, a);
+                                                         }-*/;
+
+    public final native void copy(int x, int y, int width, int height, int dx,
+            int dy, int dwidth, int dheight) /*-{
+                                             this.copy(x,y,width,height,dx,dy,dwidth,dheight);
+                                             }-*/;
+
+    public final native void copy(Object srcImg, int x, int y, int width,
+            int height, int dx, int dy, int dwidth, int dheight) /*-{
+                                                                 this.copy(srcImg,x,y,width,height,dx,dy,dwidth,dheight);
+                                                                 }-*/;
+
+    public final native void filter(Object mode) /*-{
+                                                 this.filter(mode);
+                                                 }-*/;
+
+    public final native void filter(Object mode, float param) /*-{
+                                                              this.filter(mode, param);
+                                                              }-*/;
+
+    public final native Object get() /*-{
+                                     return this.get();
+                                     }-*/;
+
+    public final native Object get(int x, int y) /*-{
+                                                 return this.get(x, y);
+                                                 }-*/;
+
+    public final native Object get(int x, int y, int width, int height) /*-{
+                                                                        return this.get(x, y, width, height);
+                                                                        }-*/;
+
+    public final native void loadPixels() /*-{
+                                          this.loadPixels();
+                                          }-*/;
+
+    public final native int[] getPixels() /*-{
+                                          return this.pixels;
+                                          }-*/;
+
+    public final native void updatePixels() /*-{
+                                            this.updatePixels();
+                                            }-*/;
+
+    public final native void set(int x, int y, Object obj) /*-{
+                                                           this.set(x, y, obj);
+                                                           }-*/;
 
     public final native Object createImage(int w, int h, int mode) /*-{
                                                                    return this.createImage(w, h, mode);
                                                                    }-*/;
+
+    public final native Object createImage(int w, int h, Object mode) /*-{
+                                                                      return this.createImage(w, h, mode);
+                                                                      }-*/;
 
     public final native String nf(int num, int pad) /*-{
                                                     return this.nf(num, pad);
@@ -571,4 +811,77 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                        return this.map(value, istart, istop, ostart, ostop);
                                        }-*/;
 
+    public final native void box(int size) /*-{
+                                           this.box(size);
+                                           }-*/;
+
+    public final native void box(float size) /*-{
+                                             this.box(size);
+                                             }-*/;
+
+    public final native void box(int width, int height, int depth) /*-{
+                                                                   this.box(width,height,depth);
+                                                                   }-*/;
+
+    public final native void box(float width, float height, float depth) /*-{
+                                                                         this.box(width,height,depth);
+                                                                         }-*/;
+
+    public final native void sphere(int radius) /*-{
+                                                this.sphere(radius);
+                                                }-*/;
+
+    public final native void sphere(float radius) /*-{
+                                                  this.sphere(radius);
+                                                  }-*/;
+
+    public final native void sphereDetail(int res) /*-{
+                                                   this.sphereDetail(res);
+                                                   }-*/;
+
+    public final native void sphereDetail(int ures, int vres) /*-{
+                                                              this.sphereDetail(ures, vres);
+                                                              }-*/;
+
+    public final native void applyMatrix(float n00, float n01, float n02,
+            float n03, float n04, float n05, float n06, float n07, float n08,
+            float n09, float n10, float n11, float n12, float n13, float n14,
+            float n15) /*-{
+                            this.applyMatrix(n00, n01, n02, n03,
+                            n04, n05, n06, n07,
+                            n08, n09, n10, n11,
+                            n12, n13, n14, n15);
+                            }-*/;
+
+    public final native void printMatrix() /*-{
+                                           this.printMatrix();
+                                           }-*/;
+
+    public final native void resetMatrix() /*-{
+                                           this.resetMatrix();
+                                           }-*/;
+
+    public final native void print(String data) /*-{
+                                                this.print(data);
+                                                }-*/;
+
+    public final native void print(Object data) /*-{
+                                                this.print(data);
+                                                }-*/;
+
+    public final native void print(String[] data) /*-{
+                                                  this.print(data);
+                                                  }-*/;
+
+    public final native void print(Object[] data) /*-{
+                                                  this.print(data);
+                                                  }-*/;
+
+    public final native void println(String data) /*-{
+                                                  this.println(data);
+                                                  }-*/;
+
+    public final native void println(Object data) /*-{
+                                                  this.println(data);
+                                                  }-*/;
 }
