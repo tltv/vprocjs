@@ -7,21 +7,23 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
     protected ProcessingJavascriptObject() {
     }
 
-    public final native void ellipse(float x, float y, float width, float height) /*-{
-                                                                                  this.ellipse(x, y, width, height);
-                                                                                  }-*/;
+    public final native void ellipse(double x, double y, double width,
+            double height) /*-{
+                           this.ellipse(x, y, width, height);
+                           }-*/;
 
-    public final native void ellipse(int x, int y, float width, float height) /*-{
-                                                                              this.ellipse(x, y, width, height);
-                                                                              }-*/;
+    public final native void ellipse(int x, int y, double width, double height) /*-{
+                                                                                this.ellipse(x, y, width, height);
+                                                                                }-*/;
 
     public final native void rect(int x, int y, int width, int height) /*-{
                                                                        this.rect(x, y, width, height);
                                                                        }-*/;
 
-    public final native void rect(float x, float y, float width, float height) /*-{
-                                                                               this.rect(x, y, width, height);
-                                                                               }-*/;
+    public final native void rect(double x, double y, double width,
+            double height) /*-{
+                           this.rect(x, y, width, height);
+                           }-*/;
 
     public final native void quad(int x1, int y1, int x2, int y2, int x3,
             int y3, int x4, int y4) /*-{
@@ -42,74 +44,74 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                       this.bezierDetail(detail);
                                                       }-*/;
 
-    public final native void bezierPoint(int a, int b, int c, int d, float t) /*-{
-                                                                              this.bezierPoint(a, b, c, d, t);
-                                                                              }-*/;
+    public final native void bezierPoint(int a, int b, int c, int d, double t) /*-{
+                                                                               this.bezierPoint(a, b, c, d, t);
+                                                                               }-*/;
 
-    public final native void bezierPoint(float a, float b, float c, float d,
-            float t) /*-{
-                     this.bezierPoint(a, b, c, d, t);
-                     }-*/;
+    public final native void bezierPoint(double a, double b, double c,
+            double d, double t) /*-{
+                                this.bezierPoint(a, b, c, d, t);
+                                }-*/;
 
-    public final native void bezierTangent(int a, int b, int c, int d, float t) /*-{
-                                                                                this.bezierTangent(a, b, c, d, t);
-                                                                                }-*/;
+    public final native void bezierTangent(int a, int b, int c, int d, double t) /*-{
+                                                                                 this.bezierTangent(a, b, c, d, t);
+                                                                                 }-*/;
 
-    public final native void bezierTangent(float a, float b, float c, float d,
-            float t) /*-{
-                     this.bezierTangent(a, b, c, d, t);
-                     }-*/;
+    public final native void bezierTangent(double a, double b, double c,
+            double d, double t) /*-{
+                                this.bezierTangent(a, b, c, d, t);
+                                }-*/;
 
     public final native void curve(int x1, int y1, int x2, int y2, int x3,
             int y3, int x4, int y4) /*-{
                                     this.curve(x1, y1, x2, y2, x3, y3, x4, y4);
                                     }-*/;
 
-    public final native void curve(float x1, float y1, float x2, float y2,
-            float x3, float y3, float x4, float y4) /*-{
-                                                    this.curve(x1, y1, x2, y2, x3, y3, x4, y4);
-                                                    }-*/;
+    public final native void curve(double x1, double y1, double x2, double y2,
+            double x3, double y3, double x4, double y4) /*-{
+                                                        this.curve(x1, y1, x2, y2, x3, y3, x4, y4);
+                                                        }-*/;
 
     public final native void curve(int x1, int y1, int z1, int x2, int y2,
             int z2, int x3, int y3, int z3, int x4, int y4, int z4) /*-{
                                                                     this.curve(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
                                                                     }-*/;
 
-    public final native void curve(float x1, float y1, float z1, float x2,
-            float y2, float z2, float x3, float y3, float z3, float x4,
-            float y4, float z4) /*-{
-                                this.curve(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
-                                }-*/;
+    public final native void curve(double x1, double y1, double z1, double x2,
+            double y2, double z2, double x3, double y3, double z3, double x4,
+            double y4, double z4) /*-{
+                                  this.curve(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
+                                  }-*/;
 
     public final native void curveDetail(int detail) /*-{
                                                      this.curveDetail(detail);
                                                      }-*/;
 
-    public final native void curvePoint(int a, int b, int c, int d, float t) /*-{
-                                                                             this.curvePoint(a, b, c, d, t);
-                                                                             }-*/;
+    public final native void curvePoint(int a, int b, int c, int d, double t) /*-{
+                                                                              this.curvePoint(a, b, c, d, t);
+                                                                              }-*/;
 
-    public final native void curvePoint(float a, float b, float c, float d,
-            float t) /*-{
-                     this.curvePoint(a, b, c, d, t);
-                     }-*/;
+    public final native void curvePoint(double a, double b, double c, double d,
+            double t) /*-{
+                      this.curvePoint(a, b, c, d, t);
+                      }-*/;
 
-    public final native void curveTangent(float a, float b, float c, float d,
-            float t) /*-{
-                     this.curveTangent(a, b, c, d, t);
-                     }-*/;
+    public final native void curveTangent(double a, double b, double c,
+            double d, double t) /*-{
+                                this.curveTangent(a, b, c, d, t);
+                                }-*/;
 
-    public final native void curveTangent(int a, int b, int c, int d, float t) /*-{
-                                                                               this.curveTangent(a, b, c, d, t);
-                                                                               }-*/;
+    public final native void curveTangent(int a, int b, int c, int d, double t) /*-{
+                                                                                this.curveTangent(a, b, c, d, t);
+                                                                                }-*/;
 
     public final native void line(int x1, int y1, int x2, int y2) /*-{
                                                                   this.line(x1, y1, x2, y2);
                                                                   }-*/;
 
-    public final native void line(float x1, float y1, float x2, float y2) /*-{
-                                                                          this.line(x1, y1, x2, y2);
-                                                                          }-*/;
+    public final native void line(double x1, double y1, double x2, double y2) /*-{
+                                                                              this.line(x1, y1, x2, y2);
+                                                                              }-*/;
 
     public final native void arc(int x, int y, int width, int height,
             int start, int stop) /*-{
@@ -124,9 +126,9 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                  this.strokeWeight(w);
                                                  }-*/;
 
-    public final native void strokeWeight(float w) /*-{
-                                                   this.strokeWeight(w);
-                                                   }-*/;
+    public final native void strokeWeight(double w) /*-{
+                                                    this.strokeWeight(w);
+                                                    }-*/;
 
     public final native void stroke() /*-{
                                       this.stroke();
@@ -140,9 +142,9 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                          this.stroke(r, g, b);
                                                          }-*/;
 
-    public final native void stroke(float r, float g, float b) /*-{
-                                                               this.stroke(r, g, b);
-                                                               }-*/;
+    public final native void stroke(double r, double g, double b) /*-{
+                                                                  this.stroke(r, g, b);
+                                                                  }-*/;
 
     public final native void fill() /*-{
                                     this.fill();
@@ -152,25 +154,25 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                        this.fill(r, g, b);
                                                        }-*/;
 
-    public final native float abs(float number) /*-{
-                                                return this.abs(number);
-                                                }-*/;
+    public final native double abs(double number) /*-{
+                                                  return this.abs(number);
+                                                  }-*/;
 
-    public final native float atan2(float number, float number2) /*-{
-                                                                 return this.atan2(number, number2);
+    public final native double atan2(double number, double number2) /*-{
+                                                                    return this.atan2(number, number2);
+                                                                    }-*/;
+
+    public final native double constrain(double min, double max) /*-{
+                                                                 return this.constrain(min, max);
                                                                  }-*/;
 
-    public final native float constrain(float min, float max) /*-{
-                                                              return this.constrain(min, max);
-                                                              }-*/;
+    public final native double cos(double number) /*-{
+                                                  return this.cos(number);
+                                                  }-*/;
 
-    public final native float cos(float number) /*-{
-                                                return this.cos(number);
-                                                }-*/;
-
-    public final native float degrees(float angle) /*-{
-                                                   return this.degrees(angle);
-                                                   }-*/;
+    public final native double degrees(double angle) /*-{
+                                                     return this.degrees(angle);
+                                                     }-*/;
 
     public final native void noFill() /*-{
                                       this.noFill();
@@ -184,45 +186,81 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                         this.noSmooth();
                                         }-*/;
 
-    public final native float noStroke() /*-{
-                                         this.noStroke();
-                                         }-*/;
+    public final native double noStroke() /*-{
+                                          this.noStroke();
+                                          }-*/;
 
-    public final native float pow(float number, float exponent) /*-{
-                                                                return this.pow(number, exponent);
-                                                                }-*/;
+    public final native double pow(double number, double exponent) /*-{
+                                                                   return this.pow(number, exponent);
+                                                                   }-*/;
 
-    public final native float radians(float angle) /*-{
-                                                   return this.radians(angle);
-                                                   }-*/;
+    public final native double radians(double angle) /*-{
+                                                     return this.radians(angle);
+                                                     }-*/;
 
-    public final native float sin(float number) /*-{
-                                                return this.sin(number);
-                                                }-*/;
+    public final native double sin(double number) /*-{
+                                                  return this.sin(number);
+                                                  }-*/;
 
     public final native void size(int width, int height) /*-{
                                                          this.size(width, height);
                                                          }-*/;
 
+    public final native void size(int width, int height, Object mode) /*-{
+                                                                      this.size(width, height, mode);
+                                                                      }-*/;
+
     public final native void smooth() /*-{
                                       this.smooth();
                                       }-*/;
 
-    public final native float sqrt(float number) /*-{
-                                                 return this.sqrt(number);
-                                                 }-*/;
+    public final native void strokeCap(Object mode) /*-{
+                                                    this.strokeCap(mode);
+                                                    }-*/;
 
-    public final native float noise(int x, int y, int z) /*-{
-                                                         return this.noise(x, y, z);
+    public final native void strokeJoin(Object mode) /*-{
+                                                     this.strokeJoin(mode);
+                                                     }-*/;
+
+    public final native double sqrt(double number) /*-{
+                                                   return this.sqrt(number);
+                                                   }-*/;
+
+    public final native double noise(int x, int y, int z) /*-{
+                                                          return this.noise(x, y, z);
+                                                          }-*/;
+
+    public final native void noiseDetail(int octaves) /*-{
+                                                      this.noiseDetail(octaves);
+                                                      }-*/;
+
+    public final native void noiseDetail(int octaves, double falloff) /*-{
+                                                                      this.noiseDetail(octaves, falloff);
+                                                                      }-*/;
+
+    public final native double noiseSeed(int value) /*-{
+                                                    return this.noiseSeed(value);
+                                                    }-*/;
+
+    public final native double random(int low, int high) /*-{
+                                                         return this.random(low, high);
                                                          }-*/;
 
-    public final native float random(float min, float max) /*-{
-                                                           return this.random(min, max);
-                                                           }-*/;
+    public final native double random(double low, double high) /*-{
+                                                               return this.random(low, high);
+                                                               }-*/;
 
-    public final native float random(float min) /*-{
-                                                return this.random(min);
-                                                }-*/;
+    public final native double random(int min) /*-{
+                                               return this.random(min);
+                                               }-*/;
+
+    public final native double random(double min) /*-{
+                                                  return this.random(min);
+                                                  }-*/;
+
+    public final native double randomSeed(int value) /*-{
+                                                     return this.randomSeed(value);
+                                                     }-*/;
 
     public final native void background() /*-{
                                           this.background();
@@ -240,25 +278,49 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                              this.background(r, g, b);
                                                              }-*/;
 
-    public final native void beginShape(int type) /*-{
-                                                  this.beginShape(type);
-                                                  }-*/;
+    public final native void beginShape(Object mode) /*-{
+                                                     this.beginShape(mode);
+                                                     }-*/;
 
-    public final native float bytee(float number) /*-{
-                                                  return this.bytee(number);
-                                                  }-*/;
+    public final native void bezierVertex(int cx1, int cy1, int cx2, int cy2,
+            int x, int y) /*-{
+                          this.bezierVertex(cx1, cy1, cx2, cy2, x, y);
+                          }-*/;
 
-    public final native float ceil(float number) /*-{
-                                                 return this.ceil(number);
-                                                 }-*/;
+    public final native void bezierVertex(int cx1, int cy1, int cz1, int cx2,
+            int cy2, int cz2, int x, int y, int z) /*-{
+                                                   this.bezierVertex(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z);
+                                                   }-*/;
 
-    public final native float clear() /*-{
-                                      this.clear();
-                                      }-*/;
+    public final native void bezierVertex(double cx1, double cy1, double cx2,
+            double cy2, double x, double y) /*-{
+                                            this.bezierVertex(cx1, cy1, cx2, cy2, x, y);
+                                            }-*/;
+
+    public final native void bezierVertex(double cx1, double cy1, double cz1,
+            double cx2, double cy2, double cz2, double x, double y, double z) /*-{
+                                                                              this.bezierVertex(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z);
+                                                                              }-*/;
+
+    public final native double bytee(double number) /*-{
+                                                    return this.bytee(number);
+                                                    }-*/;
+
+    public final native double ceil(double number) /*-{
+                                                   return this.ceil(number);
+                                                   }-*/;
+
+    public final native double clear() /*-{
+                                       this.clear();
+                                       }-*/;
 
     public final native void clear(int x, int y, int width, int height) /*-{
                                                                         this.clear(x, y, width, height);
                                                                         }-*/;
+
+    public final native void colorMode(int mode) /*-{
+                                                 this.colorMode(mode);
+                                                 }-*/;
 
     public final native void colorMode(int mode, int range1) /*-{
                                                              this.colorMode(mode, range1);
@@ -278,69 +340,93 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                            this.curveTightness(tightness);
                                                            }-*/;
 
-    public final native void curveVertex(int x, int y, int x2, int y2) /*-{
-                                                                       this.curveVertex(x, y, x2, y2);
+    public final native void curveVertex(int x, int y) /*-{
+                                                       this.curveVertex(x, y);
+                                                       }-*/;
+
+    public final native void curveVertex(double x, double y) /*-{
+                                                             this.curveVertex(x, y);
+                                                             }-*/;
+
+    public final native void curveVertex(int x, int y, int z) /*-{
+                                                                       this.curveVertex(x, y, z);
+                                                                       }-*/;
+
+    public final native void curveVertex(double x, double y, double z) /*-{
+                                                                       this.curveVertex(x, y, z);
                                                                        }-*/;
 
     public final native int day() /*-{
                                   return this.day();
                                   }-*/;
 
-    public final native float dist(int x1, int y1, int x2, int y2) /*-{
-                                                                   return this.dist(x1, y1, x2, y2);
-                                                                   }-*/;
+    public final native double dist(int x1, int y1, int x2, int y2) /*-{
+                                                                    return this.dist(x1, y1, x2, y2);
+                                                                    }-*/;
 
     public final native void ellipseMode(int ellipseMode) /*-{
                                                           this.ellipseMode(ellipseMode);
                                                           }-*/;
 
-    public final native void endShape(boolean close) /*-{
-                                                     this.endShape(close);
+    public final native void endShape(Object mode) /*-{
+                                                     this.endShape(mode);
                                                      }-*/;
 
     public final native void endShape() /*-{
-                                        this.endShape(true);
+                                        this.endShape();
                                         }-*/;
 
-    public final native float floatt(float number) /*-{
-                                                   return this.floatt(number);
-                                                   }-*/;
-
-    public final native float floor(float number) /*-{
-                                                  return this.floor(number);
-                                                  }-*/;
-
-    public final native void frameRate(int rate) /*-{
-                                                 this.frameRate(rate);
+    public final native void texture(Object img) /*-{
+                                                 this.texture(img);
                                                  }-*/;
+
+    public final native void textureMode(Object mode) /*-{
+                                                      this.textureMode(mode);
+                                                      }-*/;
+
+    public final native double floatt(double number) /*-{
+                                                     return this.floatt(number);
+                                                     }-*/;
+
+    public final native double floor(double number) /*-{
+                                                    return this.floor(number);
+                                                    }-*/;
+
+    public final native void frameRate(int fps) /*-{
+                                                 this.frameRate(fps);
+                                                 }-*/;
+
+    public final native int getFrameRate() /*-{
+                                           return this.frameRate;
+                                           }-*/;
 
     public final native int hour() /*-{
                                    return this.hour();
                                    }-*/;
 
-    public final native float inte(float number) /*-{
-                                                 return this.inte(rate);
-                                                 }-*/;
+    public final native double inte(double number) /*-{
+                                                   return this.inte(rate);
+                                                   }-*/;
 
-    public final native float lerp(float value1, float value2, float amt) /*-{
-                                                                          return this.lerp(value1, value2, amt);
-                                                                          }-*/;
+    public final native double lerp(double value1, double value2, double amt) /*-{
+                                                                              return this.lerp(value1, value2, amt);
+                                                                              }-*/;
 
     public final native void loop() /*-{
                                     this.loop();
                                     }-*/;
 
-    public final native float max(float number, float number2) /*-{
-                                                               return this.max(number, number2);
-                                                               }-*/;
+    public final native double max(double number, double number2) /*-{
+                                                                  return this.max(number, number2);
+                                                                  }-*/;
 
     public final native int millis() /*-{
                                      return this.millis();
                                      }-*/;
 
-    public final native float min(float number, float number2) /*-{
-                                                               return this.min(number, number2);
-                                                               }-*/;
+    public final native double min(double number, double number2) /*-{
+                                                                  return this.min(number, number2);
+                                                                  }-*/;
 
     public final native int minute() /*-{
                                      return this.minute();
@@ -350,9 +436,9 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                     return this.month();
                                     }-*/;
 
-    public final native float norm(float number, float low, float high) /*-{
-                                                                        return this.norm(number, low, high);
-                                                                        }-*/;
+    public final native double norm(double number, double low, double high) /*-{
+                                                                            return this.norm(number, low, high);
+                                                                            }-*/;
 
     public final native void popMatrix() /*-{
                                          this.popMatrix();
@@ -370,70 +456,70 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                       this.redraw();
                                       }-*/;
 
-    public final native void rotate(float angle) /*-{
-                                                 this.rotate(angle);
-                                                 }-*/;
-
-    public final native void rotateX(float angle) /*-{
-                                                  this.rotateX(angle);
+    public final native void rotate(double angle) /*-{
+                                                  this.rotate(angle);
                                                   }-*/;
 
-    public final native void rotateY(float angle) /*-{
-                                                  this.rotateY(angle);
-                                                  }-*/;
+    public final native void rotateX(double angle) /*-{
+                                                   this.rotateX(angle);
+                                                   }-*/;
 
-    public final native void rotateZ(float angle) /*-{
-                                                  this.rotateZ(angle);
-                                                  }-*/;
+    public final native void rotateY(double angle) /*-{
+                                                   this.rotateY(angle);
+                                                   }-*/;
 
-    public final native float round(float number) /*-{
-                                                  return this.round(number);
-                                                  }-*/;
+    public final native void rotateZ(double angle) /*-{
+                                                   this.rotateZ(angle);
+                                                   }-*/;
 
-    public final native void scale(float size) /*-{
-                                               this.scale(size);
-                                               }-*/;
+    public final native double round(double number) /*-{
+                                                    return this.round(number);
+                                                    }-*/;
 
-    public final native void scale(float x, float y) /*-{
-                                                     this.scale(x, y);
-                                                     }-*/;
+    public final native void scale(double size) /*-{
+                                                this.scale(size);
+                                                }-*/;
 
-    public final native void scale(float x, float y, float z) /*-{
-                                                              this.scale(x, y, z);
-                                                              }-*/;
+    public final native void scale(double x, double y) /*-{
+                                                       this.scale(x, y);
+                                                       }-*/;
+
+    public final native void scale(double x, double y, double z) /*-{
+                                                                 this.scale(x, y, z);
+                                                                 }-*/;
 
     public final native int second() /*-{
                                      return this.second();
                                      }-*/;
 
-    public final native float sq(float number) /*-{
-                                               return this.sq(number);
-                                               }-*/;
-
-    public final native String str(float number) /*-{
-                                                 return this.str(number);
+    public final native double sq(double number) /*-{
+                                                 return this.sq(number);
                                                  }-*/;
+
+    public final native String str(double number) /*-{
+                                                  return this.str(number);
+                                                  }-*/;
 
     public final native void translate(int x, int y) /*-{
                                                      this.translate(x, y);
                                                      }-*/;
 
-    public final native void translate(float x, float y) /*-{
-                                                         this.translate(x, y);
-                                                         }-*/;
+    public final native void translate(double x, double y) /*-{
+                                                           this.translate(x, y);
+                                                           }-*/;
 
     public final native void translate(int x, int y, int z) /*-{
                                                             this.translate(x, y, z);
                                                             }-*/;
 
-    public final native void translate(float x, float y, float z) /*-{
-                                                                  this.translate(x, y, z);
-                                                                  }-*/;
+    public final native void translate(double x, double y, double z) /*-{
+                                                                     this.translate(x, y, z);
+                                                                     }-*/;
 
-    public final native void vertex(float x, float y, float x2, float y2,
-            float x3, float y3) /*-{
-                                this.vertex(x, y, x2, y2, x3, y3);
-                                }-*/;
+    public final native void vertex(double x, double y, double x2, double y2,
+            double x3, double y3) /*-{
+                                  this.vertex(x, y, x2, y2, x3, y3);
+                                  }-*/;
 
     public final native void vertex(int x, int y, int x2, int y2, int x3, int y3) /*-{
                                                                                   this.vertex(x, y, x2, y2, x3, y3);
@@ -443,17 +529,17 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                   this.vertex(x, y);
                                                   }-*/;
 
-    public final native void vertex(float x, float y) /*-{
-                                                      this.vertex(x, y);
-                                                      }-*/;
+    public final native void vertex(double x, double y) /*-{
+                                                        this.vertex(x, y);
+                                                        }-*/;
 
     public final native void vertex(int x, int y, int x2, int y2) /*-{
                                                                   this.vertex(x, y, x2, y2);
                                                                   }-*/;
 
-    public final native void vertex(float x, float y, float x2, float y2) /*-{
-                                                                          this.vertex(x, y, x2, y2);
-                                                                          }-*/;
+    public final native void vertex(double x, double y, double x2, double y2) /*-{
+                                                                              this.vertex(x, y, x2, y2);
+                                                                              }-*/;
 
     public final native int year() /*-{
                                    return this.year();
@@ -463,45 +549,45 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                             this.text(str, x, y);
                                                             }-*/;
 
-    public final native void text(String str, float x, float y) /*-{
-                                                                this.text(str, x, y);
-                                                                }-*/;
+    public final native void text(String str, double x, double y) /*-{
+                                                                  this.text(str, x, y);
+                                                                  }-*/;
 
     public final native void text(String str, int x, int y, int z) /*-{
                                                                    this.text(str, x, y, z);
                                                                    }-*/;
 
-    public final native void text(String str, float x, float y, float z) /*-{
-                                                                         this.text(str, x, y, z);
-                                                                         }-*/;
+    public final native void text(String str, double x, double y, double z) /*-{
+                                                                            this.text(str, x, y, z);
+                                                                            }-*/;
 
     public final native void text(String str, int x, int y, int width,
             int height) /*-{
                         this.text(str, x, y, width, height);
                         }-*/;
 
-    public final native void text(String str, float x, float y, float width,
-            float height) /*-{
-                          this.text(str, x, y, width, height);
-                          }-*/;
+    public final native void text(String str, double x, double y, double width,
+            double height) /*-{
+                           this.text(str, x, y, width, height);
+                           }-*/;
 
     public final native void text(String str, int x, int y, int width,
             int height, int z) /*-{
                                this.text(str, x, y, width, height, z);
                                }-*/;
 
-    public final native void text(String str, float x, float y, float width,
-            float height, float z) /*-{
-                                   this.text(str, x, y, width, height, z);
-                                   }-*/;
+    public final native void text(String str, double x, double y, double width,
+            double height, double z) /*-{
+                                     this.text(str, x, y, width, height, z);
+                                     }-*/;
 
     public final native void textSize(int size) /*-{
                                                 this.textSize(size);
                                                 }-*/;
 
-    public final native void textSize(float size) /*-{
-                                                  this.textSize(size);
-                                                  }-*/;
+    public final native void textSize(double size) /*-{
+                                                   this.textSize(size);
+                                                   }-*/;
 
     public final native void textAlign(Object align) /*-{
                                                      this.textAlign(align);
@@ -515,9 +601,9 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                    this.textLeading(dist);
                                                    }-*/;
 
-    public final native void textLeading(float dist) /*-{
-                                                     this.textLeading(dist);
-                                                     }-*/;
+    public final native void textLeading(double dist) /*-{
+                                                      this.textLeading(dist);
+                                                      }-*/;
 
     public final native void textMode(Object mode) /*-{
                                                    this.textMode(mode);
@@ -527,36 +613,36 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                              this.textFont(name, size);
                                                              }-*/;
 
-    public final native void textFont(Object name, float size) /*-{
-                                                               this.textFont(name, size);
-                                                               }-*/;
+    public final native void textFont(Object name, double size) /*-{
+                                                                this.textFont(name, size);
+                                                                }-*/;
 
     public final native void textWidth(String data) /*-{
                                                     this.textWidth(data);
                                                     }-*/;
 
-    public final native float textAscent() /*-{
+    public final native double textAscent() /*-{
                                                       return this.textAscent();
                                                       }-*/;
 
-    public final native float textDescent() /*-{
-                                            return this.textDescent();
-                                            }-*/;
+    public final native double textDescent() /*-{
+                                             return this.textDescent();
+                                             }-*/;
 
     public final native Object loadFont(String fontname) /*-{
                                                          return this.loadFont(fontname);
                                                          }-*/;
 
-    public final native Object createFont(String name, float size) /*-{
-                                                                   return this.createFont(name, size);
-                                                                   }-*/;
+    public final native Object createFont(String name, double size) /*-{
+                                                                    return this.createFont(name, size);
+                                                                    }-*/;
 
-    public final native Object createFont(String name, float size,
+    public final native Object createFont(String name, double size,
             boolean smooth) /*-{
                             return this.createFont(name, size, smooth);
                             }-*/;
 
-    public final native Object createFont(String name, float size,
+    public final native Object createFont(String name, double size,
             boolean smooth, char[] charset) /*-{
                                             return this.createFont(name, size, smooth, charset);
                                             }-*/;
@@ -585,19 +671,19 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                              this.image(img, x, y);
                                                              }-*/;
 
-    public final native void image(Object img, float x, float y) /*-{
-                                                                 this.image(img, x, y);
-                                                                 }-*/;
+    public final native void image(Object img, double x, double y) /*-{
+                                                                   this.image(img, x, y);
+                                                                   }-*/;
 
     public final native void image(Object img, int x, int y, int width,
             int height) /*-{
                         this.image(img, x, y, width, height);
                         }-*/;
 
-    public final native void image(Object img, float x, float y, float width,
-            float height) /*-{
-                          this.image(img, x, y, width, height);
-                          }-*/;
+    public final native void image(Object img, double x, double y,
+            double width, double height) /*-{
+                                         this.image(img, x, y, width, height);
+                                         }-*/;
 
     public final native void imageMode(Object mode) /*-{
                                                     this.imageMode(mode);
@@ -607,33 +693,33 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                             this.tint(gray);
                                             }-*/;
 
-    public final native void tint(float gray) /*-{
-                                              this.tint(gray);
-                                              }-*/;
+    public final native void tint(double gray) /*-{
+                                               this.tint(gray);
+                                               }-*/;
 
     public final native void tint(int gray, int a) /*-{
                                                    this.tint(gray, a);
                                                    }-*/;
 
-    public final native void tint(float gray, float a) /*-{
-                                                       this.tint(gray, a);
-                                                       }-*/;
+    public final native void tint(double gray, double a) /*-{
+                                                         this.tint(gray, a);
+                                                         }-*/;
 
     public final native void tint(int r, int g, int b) /*-{
                                                        this.tint(r, g, b);
                                                        }-*/;
 
-    public final native void tint(float r, float g, float b) /*-{
-                                                             this.tint(r, g, b);
-                                                             }-*/;
+    public final native void tint(double r, double g, double b) /*-{
+                                                                this.tint(r, g, b);
+                                                                }-*/;
 
     public final native void tint(int r, int g, int b, int a) /*-{
                                                               this.tint(r, g, b, a);
                                                               }-*/;
 
-    public final native void tint(float r, float g, float b, float a) /*-{
-                                                                      this.tint(r, g, b, a);
-                                                                      }-*/;
+    public final native void tint(double r, double g, double b, double a) /*-{
+                                                                          this.tint(r, g, b, a);
+                                                                          }-*/;
 
     public final native void tint(Object color) /*-{
                                                 this.tint(color);
@@ -643,9 +729,9 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                        this.tint(color, a);
                                                        }-*/;
 
-    public final native void tint(Object color, float a) /*-{
-                                                         this.tint(color, a);
-                                                         }-*/;
+    public final native void tint(Object color, double a) /*-{
+                                                          this.tint(color, a);
+                                                          }-*/;
 
     public final native void copy(int x, int y, int width, int height, int dx,
             int dy, int dwidth, int dheight) /*-{
@@ -661,9 +747,9 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                  this.filter(mode);
                                                  }-*/;
 
-    public final native void filter(Object mode, float param) /*-{
-                                                              this.filter(mode, param);
-                                                              }-*/;
+    public final native void filter(Object mode, double param) /*-{
+                                                               this.filter(mode, param);
+                                                               }-*/;
 
     public final native Object get() /*-{
                                      return this.get();
@@ -705,25 +791,42 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                     return this.nf(num, pad);
                                                     }-*/;
 
-    public final native Object lerpColor(Object c1, Object c2, float amt) /*-{
-                                                                          return this.lerpColor(c1, c2, amt);
-                                                                          }-*/;
+    public final native Object lerpColor(Object c1, Object c2, double amt) /*-{
+                                                                           return this.lerpColor(c1, c2, amt);
+                                                                           }-*/;
 
-    public final native float alpha(Object aColor) /*-{
-                                                   return this.alpha(aColor);
-                                                   }-*/;
+    public final native double alpha(Object aColor) /*-{
+                                                    return this.alpha(aColor);
+                                                    }-*/;
 
-    public final native float blue(Object aColor) /*-{
-                                                  return this.blue(aColor);
+    public final native double blendColor(Object color1, Object color2,
+            Object mode) /*-{
+                         return this.blendColor(color1, color2, mode);
+                         }-*/;
+
+    public final native double blue(Object color) /*-{
+                                                  return this.blue(color);
                                                   }-*/;
 
-    public final native float green(Object aColor) /*-{
-                                                   return this.green(aColor);
-                                                   }-*/;
+    public final native double brightness(Object color) /*-{
+                                                        return this.brightness(color);
+                                                        }-*/;
 
-    public final native float red(Object aColor) /*-{
-                                                 return this.red(aColor);
-                                                 }-*/;
+    public final native double green(Object aColor) /*-{
+                                                    return this.green(aColor);
+                                                    }-*/;
+
+    public final native double hue(Object aColor) /*-{
+                                                  return this.hue(aColor);
+                                                  }-*/;
+
+    public final native double red(Object aColor) /*-{
+                                                  return this.red(aColor);
+                                                  }-*/;
+
+    public final native double saturation(Object aColor) /*-{
+                                                         return this.saturation(aColor);
+                                                         }-*/;
 
     public final native int color(int value1, int value2, int value3) /*-{
                                                                       return this.color(value1, value2, value3);
@@ -738,15 +841,23 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                return this.color(gray);
                                                }-*/;
 
+    public final native Object color(double gray) /*-{
+                                                  return this.color(gray);
+                                                  }-*/;
+
     public final native Object color(int gray, int alpha) /*-{
                                                           return this.color(gray, alpha);
                                                           }-*/;
 
-    public final native Object color(String hex, int alpha) /*-{
+    public final native Object color(double gray, double alpha) /*-{
+                                                                return this.color(gray, alpha);
+                                                                }-*/;
+
+    public final native Object color(Object hex, int alpha) /*-{
                                                             return this.color(hex, alpha);
                                                             }-*/;
 
-    public final native Object color(String hex) /*-{
+    public final native Object color(Object hex) /*-{
                                                  return this.color(hex);
                                                  }-*/;
 
@@ -802,38 +913,62 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                  return this.mousePressedVar;
                                                  }-*/;
 
+    public final native boolean isFocused() /*-{
+                                            return this.focused;
+                                            }-*/;
+
     public final native void setFrameCount(int fc) /*-{
                                                    this.frameCount = fc;
                                                    }-*/;
 
-    public final native float map(float value, float istart, float istop,
-            float ostart, float ostop) /*-{
-                                       return this.map(value, istart, istop, ostart, ostop);
-                                       }-*/;
+    public final native void noCursor() /*-{
+                                        this.noCursor();
+                                        }-*/;
+
+    public final native boolean isOnline() /*-{
+                                           return this.online;
+                                           }-*/;
+
+    public final native Object getScreen() /*-{
+                                           return this.screen;
+                                           }-*/;
+
+    public final native int getScreenWidth() /*-{
+                                                return this.screen.width;
+                                                }-*/;
+
+    public final native int getScreenHeight() /*-{
+                                              return this.screen.height;
+                                              }-*/;
+
+    public final native double map(double value, double istart, double istop,
+            double ostart, double ostop) /*-{
+                                         return this.map(value, istart, istop, ostart, ostop);
+                                         }-*/;
 
     public final native void box(int size) /*-{
                                            this.box(size);
                                            }-*/;
 
-    public final native void box(float size) /*-{
-                                             this.box(size);
-                                             }-*/;
+    public final native void box(double size) /*-{
+                                              this.box(size);
+                                              }-*/;
 
     public final native void box(int width, int height, int depth) /*-{
                                                                    this.box(width,height,depth);
                                                                    }-*/;
 
-    public final native void box(float width, float height, float depth) /*-{
-                                                                         this.box(width,height,depth);
-                                                                         }-*/;
+    public final native void box(double width, double height, double depth) /*-{
+                                                                            this.box(width,height,depth);
+                                                                            }-*/;
 
     public final native void sphere(int radius) /*-{
                                                 this.sphere(radius);
                                                 }-*/;
 
-    public final native void sphere(float radius) /*-{
-                                                  this.sphere(radius);
-                                                  }-*/;
+    public final native void sphere(double radius) /*-{
+                                                   this.sphere(radius);
+                                                   }-*/;
 
     public final native void sphereDetail(int res) /*-{
                                                    this.sphereDetail(res);
@@ -843,15 +978,15 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                               this.sphereDetail(ures, vres);
                                                               }-*/;
 
-    public final native void applyMatrix(float n00, float n01, float n02,
-            float n03, float n04, float n05, float n06, float n07, float n08,
-            float n09, float n10, float n11, float n12, float n13, float n14,
-            float n15) /*-{
-                            this.applyMatrix(n00, n01, n02, n03,
-                            n04, n05, n06, n07,
-                            n08, n09, n10, n11,
-                            n12, n13, n14, n15);
-                            }-*/;
+    public final native void applyMatrix(double n00, double n01, double n02,
+            double n03, double n04, double n05, double n06, double n07,
+            double n08, double n09, double n10, double n11, double n12,
+            double n13, double n14, double n15) /*-{
+                                                    this.applyMatrix(n00, n01, n02, n03,
+                                                    n04, n05, n06, n07,
+                                                    n08, n09, n10, n11,
+                                                    n12, n13, n14, n15);
+                                                    }-*/;
 
     public final native void printMatrix() /*-{
                                            this.printMatrix();
@@ -884,4 +1019,300 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
     public final native void println(Object data) /*-{
                                                   this.println(data);
                                                   }-*/;
+
+    public final native Object loadShape(String filename) /*-{
+                                                          return this.loadShape(filename);
+                                                          }-*/;
+
+    public final native void shape(Object sh) /*-{
+                                              this.shape(sh);
+                                              }-*/;
+
+    public final native void shape(Object sh, int x, int y) /*-{
+                                                            this.shape(sh,x,y);
+                                                            }-*/;
+
+    public final native void shape(Object sh, double x, double y) /*-{
+                                                                  this.shape(sh,x,y);
+                                                                  }-*/;
+
+    public final native void shape(Object sh, int x, int y, int width,
+            int height) /*-{
+                           this.shape(sh, x, y, width, height);
+                           }-*/;
+
+    public final native void shape(Object sh, double x, double y, double width,
+            double height) /*-{
+                           this.shape(sh, x, y, width, height);
+                           }-*/;
+
+    public final native void shapeMode(Object mode) /*-{
+                                                    this.shapeMode(mode);
+                                                    }-*/;
+
+    public final native void createGraphics(int width, int height,
+            Object renderer) /*-{
+                             return this.createGraphics(width, height, renderer);
+                             }-*/;
+
+    public final native Object createGraphics(int width, int height,
+            Object renderer, String filename) /*-{
+                                              return this.createGraphics(width, height, renderer, filename);
+                                              }-*/;
+
+    public final native void hint(Object item) /*-{
+                                               this.hint(item);
+                                               }-*/;
+
+    public final native void cursor() /*-{
+                                      this.cursor();
+                                      }-*/;
+
+    public final native void cursor(Object mode) /*-{
+                                                 this.cursor(mode);
+                                                 }-*/;
+
+    public final native void cursor(Object image, int x, int y) /*-{
+                                                                this.cursor(image,x,y);
+                                                                }-*/;
+
+    public final native void ambientLight(int v1, int v2, int v3) /*-{
+                                                                  this.ambientLight(v1,v2,v3);
+                                                                  }-*/;
+
+    public final native void ambientLight(double v1, double v2, double v3) /*-{
+                                                                           this.ambientLight(v1,v2,v3);
+                                                                           }-*/;
+
+    public final native void ambientLight(int v1, int v2, int v3, int x, int y,
+            int z) /*-{
+                   this.ambientLight(v1,v2,v3,x,y,z);
+                   }-*/;
+
+    public final native void ambientLight(double v1, double v2, double v3,
+            double x, double y, double z) /*-{
+                                          this.ambientLight(v1,v2,v3,x,y,z);
+                                          }-*/;
+
+    public final native void directionalLight(int v1, int v2, int v3, int nx,
+            int ny, int nz) /*-{
+                            this.directionalLight(v1,v2,v3,nx,ny,nz);
+                            }-*/;
+
+    public final native void directionalLight(double v1, double v2, double v3,
+            double nx, double ny, double nz) /*-{
+                                             this.directionalLight(v1,v2,v3,nx,ny,nz);
+                                             }-*/;
+
+    public final native void lightFalloff(int constant, int linear,
+            int quadratic) /*-{
+                           this.lightFalloff(constant,linear,quadratic);
+                           }-*/;
+
+    public final native void lightFalloff(double constant, double linear,
+            double quadratic) /*-{
+                              this.lightFalloff(constant,linear,quadratic);
+                              }-*/;
+
+    public final native void lightSpecular(int v1, int v2, int v3) /*-{
+                                                                   this.lightSpecular(v1,v2,v3);
+                                                                   }-*/;
+
+    public final native void lightSpecular(double v1, double v2, double v3) /*-{
+                                                                            this.lightSpecular(v1,v2,v3);
+                                                                            }-*/;
+
+    public final native void lights() /*-{
+                                      this.lights();
+                                      }-*/;
+
+    public final native void noLights() /*-{
+                                        this.noLights();
+                                        }-*/;
+
+    public final native void normal(double nx, double ny, double nz) /*-{
+                                                                     this.normal(nx,ny,nz);
+                                                                     }-*/;
+
+    public final native void pointLight(int v1, int v2, int v3, int nx, int ny,
+            int nz) /*-{
+                    this.pointLight(v1,v2,v3,nx,ny,nz);
+                    }-*/;
+
+    public final native void pointLight(double v1, double v2, double v3,
+            double nx, double ny, double nz) /*-{
+                                             this.pointLight(v1,v2,v3,nx,ny,nz);
+                                             }-*/;
+
+    public final native void spotLight(int v1, int v2, int v3, int nx, int ny,
+            int nz, double angle, double concentration) /*-{
+                                                        this.spotLight(v1,v2,v3,nx,ny,nz,angle,concentration);
+                                                        }-*/;
+
+    public final native void spotLight(double v1, double v2, double v3,
+            double nx, double ny, double nz, double angle, double concentration) /*-{
+                                                                                 this.spotLight(v1,v2,v3,nx,ny,nz,angle,concentration);
+                                                                                 }-*/;
+
+    public final native void beginCamera() /*-{
+                                           this.beginCamera();
+                                           }-*/;
+
+    public final native void camera() /*-{
+                                      this.camera();
+                                      }-*/;
+
+    public final native void camera(double eyeX, double eyeY, double eyeZ,
+            double centerX, double centerY, double centerZ, double upX,
+            double upY, double upZ) /*-{
+                                    this.camera(eyeX, eyeY, eyeZ,centerX, centerY, centerZ,upX, upY, upZ);
+                                    }-*/;
+
+    public final native void endCamera() /*-{
+                                         this.endCamera();
+                                         }-*/;
+
+    public final native void frustum(double left, double right, double bottom,
+            double top, double near, double far) /*-{
+                                                 this.frustum(left, right, bottom,top, near, far);
+                                                 }-*/;
+
+    public final native void ortho() /*-{
+                                     this.ortho();
+                                     }-*/;
+
+    public final native void ortho(double left, double right, double bottom,
+            double top, double near, double far) /*-{
+                                                 this.ortho(left, right, bottom,top, near, far);
+                                                 }-*/;
+
+    public final native void perspective() /*-{
+                                           this.perspective();
+                                           }-*/;
+
+    public final native void perspective(double fov, double aspect,
+            double zNear, double zFar) /*-{
+                                       this.perspective(fov, aspect, zNear,zFar);
+                                       }-*/;
+
+    public final native void printCamera() /*-{
+                                           this.printCamera();
+                                           }-*/;
+
+    public final native void printProjection() /*-{
+                                               this.printProjection();
+                                               }-*/;
+
+    public final native double modelX(int x, int y, int z) /*-{
+                                                           return this.modelX(x,y,z);
+                                                           }-*/;
+
+    public final native double modelX(double x, double y, double z) /*-{
+                                                                    return this.modelX(x,y,z);
+                                                                    }-*/;
+
+    public final native double modelY(int x, int y, int z) /*-{
+                                                           return this.modelY(x,y,z);
+                                                           }-*/;
+
+    public final native double modelY(double x, double y, double z) /*-{
+                                                                    return this.modelY(x,y,z);
+                                                                    }-*/;
+
+    public final native double modelZ(int x, int y, int z) /*-{
+                                                           return this.modelZ(x,y,z);
+                                                           }-*/;
+
+    public final native double modelZ(double x, double y, double z) /*-{
+                                                                    return this.modelZ(x,y,z);
+                                                                    }-*/;
+
+    public final native double screenX(int x, int y, int z) /*-{
+                                                            return this.screenX(x,y,z);
+                                                            }-*/;
+
+    public final native double screenX(double x, double y, double z) /*-{
+                                                                     return this.screenX(x,y,z);
+                                                                     }-*/;
+
+    public final native double screenY(int x, int y, int z) /*-{
+                                                            return this.screenY(x,y,z);
+                                                            }-*/;
+
+    public final native double screenY(double x, double y, double z) /*-{
+                                                                     return this.screenY(x,y,z);
+                                                                     }-*/;
+
+    public final native double screenZ(int x, int y, int z) /*-{
+                                                            return this.screenZ(x,y,z);
+                                                            }-*/;
+
+    public final native double screenZ(double x, double y, double z) /*-{
+                                                                     return this.screenZ(x,y,z);
+                                                                     }-*/;
+
+    public final native void ambient(int gray) /*-{
+                                               this.ambient(gray);
+                                               }-*/;
+
+    public final native void ambient(double gray) /*-{
+                                                  this.ambient(gray);
+                                                  }-*/;
+
+    public final native void ambient(Object color) /*-{
+                                                   this.ambient(color);
+                                                   }-*/;
+
+    public final native void ambient(int v1, int v2, int v3) /*-{
+                                                             this.ambient(v1,v2,v3);
+                                                             }-*/;
+
+    public final native void ambient(double v1, double v2, double v3) /*-{
+                                                                      this.ambient(v1,v2,v3);
+                                                                      }-*/;
+
+    public final native void emissive(int gray) /*-{
+                                                this.emissive(gray);
+                                                }-*/;
+
+    public final native void emissive(double gray) /*-{
+                                                   this.emissive(gray);
+                                                   }-*/;
+
+    public final native void emissive(Object color) /*-{
+                                                    this.emissive(color);
+                                                    }-*/;
+
+    public final native void emissive(int v1, int v2, int v3) /*-{
+                                                              this.emissive(v1,v2,v3);
+                                                              }-*/;
+
+    public final native void emissive(double v1, double v2, double v3) /*-{
+                                                                       this.emissive(v1,v2,v3);
+                                                                       }-*/;
+
+    public final native void shininess(double shine) /*-{
+                                                     this.shininess(shine);
+                                                     }-*/;
+
+    public final native void specular(int gray) /*-{
+                                                this.specular(gray);
+                                                }-*/;
+
+    public final native void specular(double gray) /*-{
+                                                   this.specular(gray);
+                                                   }-*/;
+
+    public final native void specular(Object color) /*-{
+                                                    this.specular(color);
+                                                    }-*/;
+
+    public final native void specular(int v1, int v2, int v3) /*-{
+                                                              this.specular(v1,v2,v3);
+                                                              }-*/;
+
+    public final native void specular(double v1, double v2, double v3) /*-{
+                                                                       this.specular(v1,v2,v3);
+                                                                       }-*/;
+
 }

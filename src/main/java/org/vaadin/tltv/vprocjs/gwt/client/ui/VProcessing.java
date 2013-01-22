@@ -596,7 +596,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (processingJavaCode != null) {
             processingJavaCode.mouseMoved();
         }
-        eventrpc.mouseMoved();
+        if (eventrpc != null) {
+            eventrpc.mouseMoved();
+        }
     };
 
     /**
@@ -607,7 +609,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (processingJavaCode != null) {
             processingJavaCode.mouseDragged();
         }
-        eventrpc.mouseDragged();
+        if (eventrpc != null) {
+            eventrpc.mouseDragged();
+        }
     };
 
     /**
@@ -618,7 +622,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (processingJavaCode != null) {
             processingJavaCode.mousePressed();
         }
-        eventrpc.mousePressed();
+        if (eventrpc != null) {
+            eventrpc.mousePressed();
+        }
     };
 
     /**
@@ -629,7 +635,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (processingJavaCode != null) {
             processingJavaCode.mouseClicked();
         }
-        eventrpc.mouseClicked();
+        if (eventrpc != null) {
+            eventrpc.mouseClicked();
+        }
     };
 
     /**
@@ -640,7 +648,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (processingJavaCode != null) {
             processingJavaCode.mouseReleased();
         }
-        eventrpc.mouseReleased();
+        if (eventrpc != null) {
+            eventrpc.mouseReleased();
+        }
     };
 
     /**
@@ -651,7 +661,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (processingJavaCode != null) {
             processingJavaCode.keyPressed();
         }
-        eventrpc.keyPressed();
+        if (eventrpc != null) {
+            eventrpc.keyPressed();
+        }
     };
 
     /**
@@ -662,7 +674,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (processingJavaCode != null) {
             processingJavaCode.keyReleased();
         }
-        eventrpc.keyReleased();
+        if (eventrpc != null) {
+            eventrpc.keyReleased();
+        }
     };
 
     /**
@@ -673,6 +687,8 @@ public class VProcessing extends Composite implements ClickHandler,
         if (processingJavaCode != null) {
             processingJavaCode.keyTyped();
         }
-        eventrpc.keyTyped();
+        if (eventrpc != null) {
+            eventrpc.keyTyped();
+        }
     }
 }

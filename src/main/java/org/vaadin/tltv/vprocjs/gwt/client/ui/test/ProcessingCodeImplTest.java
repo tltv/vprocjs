@@ -2,10 +2,9 @@ package org.vaadin.tltv.vprocjs.gwt.client.ui.test;
 
 import org.vaadin.tltv.vprocjs.gwt.client.ui.ProcessingCodeBase;
 
-
 public class ProcessingCodeImplTest extends ProcessingCodeBase {
 
-    float radius = 50.0f;
+    double radius = 50.0f;
     int X, Y;
     int nX, nY;
     int delay = 16;
