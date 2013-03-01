@@ -5,7 +5,7 @@
 	<groupId>org.vaadin.tltv</groupId>
 	<artifactId>vprocjs</artifactId>
 	<packaging>jar</packaging>
-	<version>0.2.0</version>
+	<version>0.2.1</version>
 	<name>ProcessingJs for Vaadin 7</name>
 
 	<properties>
@@ -161,7 +161,7 @@
 							<!-- Implementation-Title and Implementation-Version come from the 
 								POM by default -->
 							<Implementation-Title>ProcessingJs</Implementation-Title>
-							<Implementation-Version>0.2.0</Implementation-Version>
+							<Implementation-Version>0.2.1</Implementation-Version>
 
 							<!-- Comma-separated list of widgetsets in the package -->
 							<Vaadin-Widgetsets>org.vaadin.tltv.vprocjs.gwt.ProcessingJsWidgetset</Vaadin-Widgetsets>
