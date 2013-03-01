@@ -19,7 +19,7 @@ Requires HTML5 support as this component uses HTML5 Canvas.
 Dependencies
 ------------
 
-* [Vaadin 7 (7.0.0.rc2)](http://vaadin.com)
+* [Vaadin 7 (7.0.1)](http://vaadin.com)
 * [processing.js (v1.4.1)](http://processingjs.org)
 
 

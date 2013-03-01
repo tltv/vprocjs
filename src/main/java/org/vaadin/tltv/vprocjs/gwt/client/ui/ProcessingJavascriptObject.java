@@ -146,13 +146,49 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                                   this.stroke(r, g, b);
                                                                   }-*/;
 
-    public final native void fill() /*-{
-                                    this.fill();
-                                    }-*/;
+    public final native void fill(int gray) /*-{
+                                            this.fill(gray);
+                                            }-*/;
+
+    public final native void fill(int gray, int alpha) /*-{
+                                                       this.fill(gray, alpha);
+                                                       }-*/;
+
+    public final native void fill(double gray) /*-{
+                                               this.fill(gray);
+                                               }-*/;
+
+    public final native void fill(double gray, double alpha) /*-{
+                                                             this.fill(gray, alpha);
+                                                             }-*/;
 
     public final native void fill(int r, int g, int b) /*-{
                                                        this.fill(r, g, b);
                                                        }-*/;
+
+    public final native void fill(double r, double g, double b) /*-{
+                                                                this.fill(r, g, b);
+                                                                }-*/;
+
+    public final native void fill(int r, int g, int b, int alpha) /*-{
+                                                                  this.fill(r, g, b, alpha);
+                                                                  }-*/;
+
+    public final native void fill(double r, double g, double b, double alpha) /*-{
+                                                                              this.fill(r, g, b, alpha);
+                                                                              }-*/;
+
+    public final native void fill(Object color) /*-{
+                                                this.fill(color);
+                                                }-*/;
+
+    public final native void fill(Object color, int alpha) /*-{
+                                                           this.fill(color, alpha);
+                                                           }-*/;
+
+    public final native void fill(Object color, double alpha) /*-{
+                                                              this.fill(color, alpha);
+                                                              }-*/;
 
     public final native double abs(double number) /*-{
                                                   return this.abs(number);
@@ -274,9 +310,42 @@ public abstract class ProcessingJavascriptObject extends JavaScriptObject {
                                                   this.background(gray);
                                                   }-*/;
 
+    public final native void background(int gray, int alpha) /*-{
+                                                             this.background(gray, alpha);
+                                                             }-*/;
+
+    public final native void background(double gray) /*-{
+                                                     this.background(gray);
+                                                     }-*/;
+
+    public final native void background(double gray, double alpha) /*-{
+                                                                   this.background(gray, alpha);
+                                                                   }-*/;
+
     public final native void background(int r, int g, int b) /*-{
                                                              this.background(r, g, b);
                                                              }-*/;
+
+    public final native void background(int r, int g, int b, int alpha) /*-{
+                                                                        this.background(r, g, b, alpha);
+                                                                        }-*/;
+
+    public final native void background(double r, double g, double b) /*-{
+                                                                      this.background(r, g, b);
+                                                                      }-*/;
+
+    public final native void background(double r, double g, double b,
+            double alpha) /*-{
+                          this.background(r, g, b, alpha);
+                          }-*/;
+
+    public final native void background(Object color) /*-{
+                                                      this.background(color);
+                                                      }-*/;
+
+    public final native void background(Object color, double alpha) /*-{
+                                                                    this.background(color, alpha);
+                                                                    }-*/;
 
     public final native void beginShape(Object mode) /*-{
                                                      this.beginShape(mode);
