@@ -19,20 +19,12 @@ package org.vaadin.tltv.vprocjs.gwt.client.ui;
 import java.util.Map;
 
 import com.google.gwt.canvas.client.Canvas;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.KeyPressEvent;
-import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.event.dom.client.MouseDownEvent;
-import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseOutEvent;
 import com.google.gwt.event.dom.client.MouseOutHandler;
 import com.google.gwt.event.dom.client.MouseOverEvent;
 import com.google.gwt.event.dom.client.MouseOverHandler;
-import com.google.gwt.event.dom.client.MouseUpEvent;
-import com.google.gwt.event.dom.client.MouseUpHandler;
 import com.google.gwt.event.dom.client.MouseWheelEvent;
 import com.google.gwt.event.dom.client.MouseWheelHandler;
 import com.google.gwt.user.client.Element;
@@ -44,28 +36,30 @@ import com.vaadin.client.ApplicationConnection;
 
 /**
  * Client side GWT widget wrapping processing.js javascript library. Made for
- * Vaadin Framework 7.</br></br>
- * 
+ * Vaadin Framework 7.</br>
+ * </br>
+ *
  * By default, this widget has a simple sketch written with Processing
- * Visualization Language that draws a big X over the canvas.</br></br>
- * 
+ * Visualization Language that draws a big X over the canvas.</br>
+ * </br>
+ *
  * This default sketch can be overridden by the
  * {@link #setProcessingCode(String)} method, if you want to use Processing
  * Visualization Language.</br>
- * 
+ *
  * Or alternatively by {@link #setProcessingJavaCode(ProcessingCode)} method, if
  * you want to write sketch with Java (with GWT restrictions).
- * 
+ *
  * @author Tltv
- * 
+ *
  */
-public class VProcessing extends Composite implements ClickHandler,
-        MouseWheelHandler, MouseUpHandler, MouseDownHandler, MouseOutHandler,
-        MouseOverHandler, KeyPressHandler, KeyUpHandler {
+public class VProcessing extends Composite
+        implements MouseWheelHandler, MouseOutHandler, MouseOverHandler, KeyUpHandler {
 
     public static final String CLASSNAME = "VProcessing";
 
     private ProcessingServerRpc rpc;
+    @Deprecated
     private ProcessingEventServerRpc eventrpc;
 
     private ProcessingJavascriptObject proJsObj;
@@ -90,9 +84,8 @@ public class VProcessing extends Composite implements ClickHandler,
     /**
      * Default Processing Visualization Language code.
      */
-    private final String defaultCode = "void setup() {\n" + "size(300, 250);\n"
-            + "smooth();\n" + "}\n" + "void draw() {\n"
-            + "line(0,0,width,height);\n" + "line(width,0,0,height);\n" + "}";
+    private final String defaultCode = "void setup() {\n" + "size(300, 250);\n" + "smooth();\n" + "}\n"
+            + "void draw() {\n" + "line(0,0,width,height);\n" + "line(width,0,0,height);\n" + "}";
 
     /**
      * Current Processing code.
@@ -126,20 +119,15 @@ public class VProcessing extends Composite implements ClickHandler,
         canvas.setStyleName("processing");
         panel.add(canvas);
 
-        canvas.addHandler(this, ClickEvent.getType());
-        canvas.addHandler(this, MouseUpEvent.getType());
-        canvas.addHandler(this, MouseDownEvent.getType());
         canvas.addHandler(this, MouseOutEvent.getType());
         canvas.addHandler(this, MouseOverEvent.getType());
         canvas.addHandler(this, MouseWheelEvent.getType());
-        canvas.addHandler(this, KeyPressEvent.getType());
         canvas.addHandler(this, KeyUpEvent.getType());
 
         initWidget(panel);
 
         setStyleName(CLASSNAME);
-        canvas.sinkEvents(Event.MOUSEEVENTS + Event.ONMOUSEWHEEL
-                + Event.KEYEVENTS);
+        canvas.sinkEvents(Event.MOUSEEVENTS + Event.ONMOUSEWHEEL + Event.KEYEVENTS);
     }
 
     public void setRpc(ProcessingServerRpc rpc) {
@@ -172,7 +160,7 @@ public class VProcessing extends Composite implements ClickHandler,
 
     /**
      * Get Processing Visualization Language code.
-     * 
+     *
      * @return String
      */
     public String getProcessingCode() {
@@ -181,7 +169,7 @@ public class VProcessing extends Composite implements ClickHandler,
 
     /**
      * Set Processing Visualization Language code.
-     * 
+     *
      * @return
      */
     public void setProcessingCode(String processingCode) {
@@ -192,14 +180,13 @@ public class VProcessing extends Composite implements ClickHandler,
 
     /**
      * Set {@link ProcessingCode} to be used.
-     * 
+     *
      * @param processingJavaCode
      */
     public void setProcessingJavaCode(ProcessingCode processingJavaCode) {
         if ((processingJavaCode == null && this.processingJavaCode != null)
                 || (processingJavaCode != null && this.processingJavaCode == null)
-                || (processingJavaCode != null && !processingJavaCode
-                        .getClass().getName()
+                || (processingJavaCode != null && !processingJavaCode.getClass().getName()
                         .equals(this.processingJavaCode.getClass().getName()))) {
             processingJavaCodeChanged = true;
         }
@@ -213,7 +200,7 @@ public class VProcessing extends Composite implements ClickHandler,
 
     /**
      * Returns true, when Processing code should be used.
-     * 
+     *
      * @return
      */
     public boolean isUseProcessingCode() {
@@ -292,92 +279,144 @@ public class VProcessing extends Composite implements ClickHandler,
         return canvas.getAbsoluteLeft();
     }
 
-    native private static Element getCanvas(String canvasid,
-            String canvasClass, Element root) /*-{
-                                              if (canvasClass) {
-                                              var targetcanvas = null;
-                                              var cvs = root.getElementsByTagName('canvas');
-                                              for ( var i = 0; i < cvs.length; i++ ) {
-                                              if(cvs[i].className == canvasClass
-                                              && cvs[i].id == canvasid) {
-                                              targetcanvas = cvs[i];
-                                              }
-                                              }
-                                              return targetcanvas;
-                                              }
-                                              return null;
-                                              }-*/;
+    native private static Element getCanvas(String canvasid, String canvasClass, Element root)
+    /*-{
+       if (canvasClass) {
+           var targetcanvas = null;
+           var cvs = root.getElementsByTagName('canvas');
+           for ( var i = 0; i < cvs.length; i++ ) {
+               if(cvs[i].className == canvasClass
+                       && cvs[i].id == canvasid) {
+                   targetcanvas = cvs[i];
+               }
+           }
+           return targetcanvas;
+       }
+       return null;
+    }-*/;
 
-    native private static void initProcessingJsWithCode(
-            VProcessing vprocessing, String canvasClass, Element root,
-            String processingCode, String canvasid) /*-{
+    native private static void initProcessingJsWithCode(VProcessing vprocessing, String canvasClass, Element root,
+            String processingCode, String canvasid)
+    /*-{
+        var targetcanvas = @org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::getCanvas(Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/user/client/Element;)(canvasid, canvasClass, root);
+        targetcanvas.getContext('2d').clearRect(0, 0, targetcanvas.width, targetcanvas.height);
 
-                                                                               var targetcanvas = @org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::getCanvas(Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/user/client/Element;)(canvasid, canvasClass, root);
-                                                                               targetcanvas.getContext('2d').clearRect(0, 0, targetcanvas.width, targetcanvas.height);
-                                                                                
-                                                                               var p =  vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj;
-                                                                               if(p) {
-                                                                                  p.exit();
-                                                                               }
+        var p =  vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj;
+        if(p) {
+            p.exit();
+        }
 
-                                                                               try {
-                                                                                   p = new $wnd.Processing(targetcanvas, processingCode);
-                                                                                   vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj = p;
-                                                                               } catch(e) {
-                                                                               alert("Failed to execute processing code!\n\nError: " + e.message);
-                                                                               }
-                                                                               }-*/;
+        try {
+            p = new $wnd.Processing(targetcanvas, processingCode);
+    
+            // function keeps existing event handler in addition to new handler.
+            var getPEventHandler = function(pro, existingEventFunction, eventFunction) {
+                if(existingEventFunction) {
+                    return function() {
+                        existingEventFunction();
+                        if(eventFunction) {
+                            eventFunction();
+                        }
+                    };
+                }
+                return eventFunction;
+            }
+    
+            p.mouseMoved = getPEventHandler(p, p.mouseMoved, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseMoved()();
+            });
+            p.mouseDragged = getPEventHandler(p, p.mouseDragged, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseDragged()();
+            });
+            p.mousePressed = getPEventHandler(p, p.mousePressed, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mousePressed()();
+            });
+            p.mouseClicked = getPEventHandler(p, p.mouseClicked, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseClicked()();
+            });
+            p.mouseReleased = getPEventHandler(p, p.mouseReleased, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseReleased()();
+            });
+            p.keyPressed = getPEventHandler(p, p.keyPressed, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::onKeyPress()();
+            });
+            p.keyReleased = getPEventHandler(p, p.keyReleased, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::onKeyRelease()();
+            });
+            p.keyTyped = getPEventHandler(p, p.keyTyped, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::keyTyped()();
+            });
 
-    native private static void initProcessingJs(VProcessing vprocessing,
-            String canvasClass, Element root, String canvasid) /*-{
-                                                               var targetcanvas = @org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::getCanvas(Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/user/client/Element;)(canvasid, canvasClass, root);
-                                                               
-                                                               var p = vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj;
-                                                               if(p) {
-                                                                  p.exit();
-                                                               }
-                                                               
-                                                               try {
-                                                                   p = new $wnd.Processing(targetcanvas);
-                                                                   
-                                                                   p.mouseMoved = function mouseMoved() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseMoved()();
-                                                                   }
-                                                                   p.mouseDragged = function mouseDragged() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseDragged()();
-                                                                   }
-                                                                   p.mousePressed = function mousePressed() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mousePressed()();
-                                                                   }
-                                                                   p.mouseClicked = function mouseClicked() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseClicked()();
-                                                                   }
-                                                                   p.mouseReleased = function mouseReleased() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseReleased()();
-                                                                   }
-                                                                   p.keyPressed = function keyPressed() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::onKeyPress(I)(this.key);
-                                                                   }
-                                                                   p.keyReleased = function keyReleased() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::onKeyRelease()();
-                                                                   }
-                                                                   p.keyTyped = function keyTyped() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::keyTyped()();
-                                                                   }
-                                                                       
-                                                                   p.setup = function setup() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::setup()();
-                                                                   }
-                                                                   p.draw = function draw() {
-                                                                       vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::draw()();
-                                                                   }
-                                                                       
-                                                                   vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj = p;
-                                                                   p.setup();
-                                                               } catch(e) {
-                                                               alert("Failed to execute processing javascript code!\n\nError: " + e.message);
-                                                               }
-                                                                       }-*/;
+            vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj = p;
+        } catch(e) {
+            alert("Failed to execute processing code!\n\nError: " + e.message);
+        }
+    }-*/;
+
+    native private static void initProcessingJs(VProcessing vprocessing, String canvasClass, Element root,
+            String canvasid)
+    /*-{
+         var targetcanvas = @org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::getCanvas(Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/user/client/Element;)(canvasid, canvasClass, root);
+    
+         var p = vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj;
+         if(p) {
+            p.exit();
+         }
+    
+         try {
+             p = new $wnd.Processing(targetcanvas);
+    
+             // function keeps existing event handler in addition to new handler.
+            var getPEventHandler = function(pro, existingEventFunction, eventFunction) {
+                if(existingEventFunction) {
+                    return function() {
+                        existingEventFunction();
+                        if(eventFunction) {
+                            eventFunction();
+                        }
+                    };
+                }
+                return eventFunction;
+            }
+    
+            p.mouseMoved = getPEventHandler(p, p.mouseMoved, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseMoved()();
+            });
+            p.mouseDragged = getPEventHandler(p, p.mouseDragged, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseDragged()();
+            });
+            p.mousePressed = getPEventHandler(p, p.mousePressed, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mousePressed()();
+            });
+            p.mouseClicked = getPEventHandler(p, p.mouseClicked, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseClicked()();
+            });
+            p.mouseReleased = getPEventHandler(p, p.mouseReleased, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseReleased()();
+            });
+            p.keyPressed = getPEventHandler(p, p.keyPressed, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::onKeyPress()();
+            });
+            p.keyReleased = getPEventHandler(p, p.keyReleased, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::onKeyRelease()();
+            });
+            p.keyTyped = getPEventHandler(p, p.keyTyped, function() {
+                vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::keyTyped()();
+            });
+    
+             p.setup = function setup() {
+                 vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::setup()();
+             }
+             p.draw = function draw() {
+                 vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::draw()();
+             }
+    
+             vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj = p;
+             p.setup();
+         } catch(e) {
+         alert("Failed to execute processing javascript code!\n\nError: " + e.message);
+         }
+     }-*/;
 
     /**
      * Initializes the canvas and also the ProcessingJsObject. Detects the
@@ -400,8 +439,7 @@ public class VProcessing extends Composite implements ClickHandler,
             if (codeToUse == null || codeToUse.trim().length() == 0) {
                 codeToUse = defaultCode;
             }
-            initProcessingJsWithCode(this, canvas.getStyleName(), getElement(),
-                    codeToUse, id);
+            initProcessingJsWithCode(this, canvas.getStyleName(), getElement(), codeToUse, id);
         } else {
             if (processingJavaCodeChanged) {
                 initProcessingJs(this, canvas.getStyleName(), getElement(), id);
@@ -412,55 +450,7 @@ public class VProcessing extends Composite implements ClickHandler,
 
     /*
      * (non-Javadoc)
-     * 
-     * @see
-     * com.google.gwt.event.dom.client.ClickHandler#onClick(com.google.gwt.event
-     * .dom.client.ClickEvent)
-     */
-    @Override
-    public void onClick(ClickEvent event) {
-        if (mouseClickListened) {
-            rpc.fireClick();
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.google.gwt.event.dom.client.MouseUpHandler#onMouseUp(com.google.gwt
-     * .event.dom.client.MouseUpEvent)
-     */
-    @Override
-    public void onMouseUp(MouseUpEvent event) {
-        mouseX = event.getX();
-        mouseY = event.getY();
-
-        if (mouseReleaseListened) {
-            rpc.fireMouseRelease(mouseX, mouseY);
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.google.gwt.event.dom.client.MouseDownHandler#onMouseDown(com.google
-     * .gwt.event.dom.client.MouseDownEvent)
-     */
-    @Override
-    public void onMouseDown(MouseDownEvent event) {
-        mouseX = event.getX();
-        mouseY = event.getY();
-
-        if (mousePressListened) {
-            rpc.fireMousePress(mouseX, mouseY);
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
+     *
      * @see
      * com.google.gwt.user.client.ui.MouseListener#onMouseMove(com.google.gwt
      * .user.client.ui.Widget, int, int)
@@ -472,7 +462,7 @@ public class VProcessing extends Composite implements ClickHandler,
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * com.google.gwt.event.dom.client.MouseOutHandler#onMouseOut(com.google
      * .gwt.event.dom.client.MouseOutEvent)
@@ -486,7 +476,7 @@ public class VProcessing extends Composite implements ClickHandler,
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * com.google.gwt.event.dom.client.MouseOverHandler#onMouseOver(com.google
      * .gwt.event.dom.client.MouseOverEvent)
@@ -500,7 +490,7 @@ public class VProcessing extends Composite implements ClickHandler,
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * com.google.gwt.event.dom.client.MouseWheelHandler#onMouseWheel(com.google
      * .gwt.event.dom.client.MouseWheelEvent)
@@ -520,29 +510,22 @@ public class VProcessing extends Composite implements ClickHandler,
         }
     }
 
-    @Override
-    public void onKeyPress(KeyPressEvent keyPressEvent) {
-        if (keyPressListened) {
-            rpc.fireKeyPress(keyPressEvent.getCharCode());
-        }
-    }
-
     /**
      * Invoked on any key press.
-     * 
+     *
      * @param key
      *            Processing.js key code.
      */
-    public void onKeyPress(int key) {
+    public void onKeyPress() {
         if (!isAttached()) {
             return;
         }
 
-        if (keyPressListened) {
-            rpc.fireKeyPress(key);
-        }
-
         keyPressed();
+
+        if (rpc != null && keyPressListened) {
+            rpc.fireKeyPress(proJsObj.getKeyCode());
+        }
     }
 
     /**
@@ -553,11 +536,11 @@ public class VProcessing extends Composite implements ClickHandler,
             return;
         }
 
-        if (keyReleaseListened) {
+        keyReleased();
+
+        if (rpc != null && keyReleaseListened) {
             rpc.fireKeyRelease();
         }
-
-        keyReleased();
     }
 
     /*****************************************************
@@ -625,6 +608,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (eventrpc != null) {
             eventrpc.mousePressed();
         }
+        if (rpc != null && mousePressListened) {
+            rpc.fireMousePress(proJsObj.getMouseX(), proJsObj.getMouseY());
+        }
     };
 
     /**
@@ -638,6 +624,9 @@ public class VProcessing extends Composite implements ClickHandler,
         if (eventrpc != null) {
             eventrpc.mouseClicked();
         }
+        if (rpc != null && mouseClickListened) {
+            rpc.fireClick();
+        }
     };
 
     /**
@@ -650,6 +639,9 @@ public class VProcessing extends Composite implements ClickHandler,
         }
         if (eventrpc != null) {
             eventrpc.mouseReleased();
+        }
+        if (rpc != null && mouseReleaseListened) {
+            rpc.fireMouseRelease(proJsObj.getMouseX(), proJsObj.getMouseY());
         }
     };
 

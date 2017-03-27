@@ -1,8 +1,8 @@
 package org.vaadin.tltv.vprocjs.gwt.client.ui;
 
-import com.vaadin.shared.AbstractComponentState;
+import com.vaadin.shared.customcomponent.CustomComponentState;
 
-public class ProcessingState extends AbstractComponentState {
+public class ProcessingState extends CustomComponentState {
 
     private String processingCode;
 

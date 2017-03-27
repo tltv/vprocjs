@@ -1,7 +1,7 @@
 Vaadin ProcessingJs  (vprocjs)
 ==============================
 
-Vaadin 7 component wrapping processing.js javascript library.
+Vaadin 8 component wrapping processing.js javascript library.
 
 Component's Java API allows you to use either [Processing Visualization Language](http://processing.org) or Java for the sketches.  
 Using Java sketch gives you more control as you can write some custom interaction between the client and server.
@@ -9,18 +9,18 @@ Using Java sketch gives you more control as you can write some custom interactio
 Supported processing.js functions can be found from the ProcessingJavascriptObject class.   
 Notice that it's not guaranteed that it contains all functions that the current processing.js supports ([reference](http://processingjs.org/reference/)).
 
-Currently supports browsers like IE 9, FireFox 18, Chrome.  
+Currently supports browsers like IE 11, Edge, FireFox, Chrome.  
 Requires HTML5 support as this component uses HTML5 Canvas.
 
 
-[Show the demo](http://tomivirtanen.virtuallypreinstalled.com/vprocjs/)
+[Show the demo](http://tomivirtanen.app.fi/vprocjs/)
 
 
 Dependencies
 ------------
 
-* [Vaadin 7 (7.0.1)](http://vaadin.com)
-* [processing.js (v1.4.1)](http://processingjs.org)
+* [Vaadin 8](http://vaadin.com)
+* [processing.js (v1.4.8)](http://processingjs.org)
 
 
 

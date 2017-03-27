@@ -30,16 +30,16 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomComponent;
 
 /**
- * Server side Vaadin component wrapping processing.js javascript library.
- * </br></br>
- * 
- * Requires that processing-1.4.1.js file exist in the
+ * Server side Vaadin component wrapping processing.js javascript library. </br>
+ * </br>
+ *
+ * Requires that processing.js file exist in the
  * org.vaadin.tltv.vprocjs.component package.
- * 
+ *
  * @author Tltv
- * 
+ *
  */
-@JavaScript({ "processing-1.4.1.js" })
+@JavaScript("processing.js")
 public class Processing extends CustomComponent implements ProcessingServerRpc {
 
     private static final long serialVersionUID = 1L;
@@ -71,27 +71,25 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
 
     static {
         try {
-            MOUSE_CLICK_METHOD = MouseClickListener.class.getDeclaredMethod(
-                    "mouseClick", new Class[] { ClickEvent.class });
-            MOUSE_PRESS_METHOD = MousePressListener.class.getDeclaredMethod(
-                    "mousePress", new Class[] { MousePressEvent.class });
-            MOUSE_RELEASE_METHOD = MouseReleaseListener.class
-                    .getDeclaredMethod("mouseRelease",
-                            new Class[] { MouseReleaseEvent.class });
-            KEY_PRESS_METHOD = KeyPressListener.class.getDeclaredMethod(
-                    "keyPress", new Class[] { KeyPressEvent.class });
-            KEY_RELEASE_METHOD = KeyReleaseListener.class.getDeclaredMethod(
-                    "keyRelease", new Class[] { KeyReleaseEvent.class });
-            MOUSE_ENTER_METHOD = MouseEnterListener.class.getDeclaredMethod(
-                    "mouseEnter", new Class[] { MouseEnterEvent.class });
-            MOUSE_LEAVE_METHOD = MouseLeaveListener.class.getDeclaredMethod(
-                    "mouseLeave", new Class[] { MouseLeaveEvent.class });
-            MOUSE_WHEEL_METHOD = MouseWheelListener.class.getDeclaredMethod(
-                    "mouseWheel", new Class[] { MouseWheelEvent.class });
+            MOUSE_CLICK_METHOD = MouseClickListener.class.getDeclaredMethod("mouseClick",
+                    new Class[] { ClickEvent.class });
+            MOUSE_PRESS_METHOD = MousePressListener.class.getDeclaredMethod("mousePress",
+                    new Class[] { MousePressEvent.class });
+            MOUSE_RELEASE_METHOD = MouseReleaseListener.class.getDeclaredMethod("mouseRelease",
+                    new Class[] { MouseReleaseEvent.class });
+            KEY_PRESS_METHOD = KeyPressListener.class.getDeclaredMethod("keyPress",
+                    new Class[] { KeyPressEvent.class });
+            KEY_RELEASE_METHOD = KeyReleaseListener.class.getDeclaredMethod("keyRelease",
+                    new Class[] { KeyReleaseEvent.class });
+            MOUSE_ENTER_METHOD = MouseEnterListener.class.getDeclaredMethod("mouseEnter",
+                    new Class[] { MouseEnterEvent.class });
+            MOUSE_LEAVE_METHOD = MouseLeaveListener.class.getDeclaredMethod("mouseLeave",
+                    new Class[] { MouseLeaveEvent.class });
+            MOUSE_WHEEL_METHOD = MouseWheelListener.class.getDeclaredMethod("mouseWheel",
+                    new Class[] { MouseWheelEvent.class });
         } catch (final java.lang.NoSuchMethodException e) {
             // This should never happen
-            throw new java.lang.RuntimeException(
-                    "Internal error finding methods in Processing");
+            throw new java.lang.RuntimeException("Internal error finding methods in Processing");
         }
     }
 
@@ -295,7 +293,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
 
     /**
      * Get mouse x-coordinate.
-     * 
+     *
      * @return
      */
     public int getMouseX() {
@@ -304,7 +302,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
 
     /**
      * Set mouse x-coordinate.
-     * 
+     *
      * @param mouseX
      */
     public void setMouseX(int mouseX) {
@@ -313,7 +311,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
 
     /**
      * Get mouse y-coordinate.
-     * 
+     *
      * @return
      */
     public int getMouseY() {
@@ -322,7 +320,7 @@ public class Processing extends CustomComponent implements ProcessingServerRpc {
 
     /**
      * Set mouse y-coordinate.
-     * 
+     *
      * @param mouseX
      */
     public void setMouseY(int mouseY) {
