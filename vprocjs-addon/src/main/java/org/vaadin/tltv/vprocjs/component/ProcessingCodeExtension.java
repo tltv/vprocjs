@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Tomi Virtanen
+ * Copyright 2013-2017 Tomi Virtanen
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import com.vaadin.server.AbstractExtension;
  * Abstract extension for the Java implementation of the sketches. This
  * extension allows us to write our own Java sketches. This acts as a
  * server-side link to the client-side code connector.
- * 
+ *
  */
 public abstract class ProcessingCodeExtension extends AbstractExtension {
 
@@ -39,7 +39,7 @@ public abstract class ProcessingCodeExtension extends AbstractExtension {
     /**
      * Get identifier for the client side Java implementation class of the
      * active sketch.
-     * 
+     *
      */
     public String getProcessingJavaCodeClass() {
         return processingJavaCodeClass;
@@ -48,7 +48,7 @@ public abstract class ProcessingCodeExtension extends AbstractExtension {
     /**
      * Set identifier for the client side Java implementation of the active
      * sketch. Full class name is preferred.
-     * 
+     *
      * @param processingJavaCodeClass
      */
     public void setProcessingJavaCodeClass(String processingJavaCodeClass) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Tomi Virtanen
+ * Copyright 2013-2017 Tomi Virtanen
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -300,15 +300,15 @@ public class VProcessing extends Composite
     /*-{
         var targetcanvas = @org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::getCanvas(Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/user/client/Element;)(canvasid, canvasClass, root);
         targetcanvas.getContext('2d').clearRect(0, 0, targetcanvas.width, targetcanvas.height);
-
+    
         var p =  vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj;
         if(p) {
             p.exit();
         }
-
+    
         try {
             p = new $wnd.Processing(targetcanvas, processingCode);
-    
+
             // function keeps existing event handler in addition to new handler.
             var getPEventHandler = function(pro, existingEventFunction, eventFunction) {
                 if(existingEventFunction) {
@@ -321,7 +321,7 @@ public class VProcessing extends Composite
                 }
                 return eventFunction;
             }
-    
+
             p.mouseMoved = getPEventHandler(p, p.mouseMoved, function() {
                 vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseMoved()();
             });
@@ -346,7 +346,7 @@ public class VProcessing extends Composite
             p.keyTyped = getPEventHandler(p, p.keyTyped, function() {
                 vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::keyTyped()();
             });
-
+    
             vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj = p;
         } catch(e) {
             alert("Failed to execute processing code!\n\nError: " + e.message);
@@ -357,15 +357,15 @@ public class VProcessing extends Composite
             String canvasid)
     /*-{
          var targetcanvas = @org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::getCanvas(Ljava/lang/String;Ljava/lang/String;Lcom/google/gwt/user/client/Element;)(canvasid, canvasClass, root);
-    
+
          var p = vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj;
          if(p) {
             p.exit();
          }
-    
+
          try {
              p = new $wnd.Processing(targetcanvas);
-    
+
              // function keeps existing event handler in addition to new handler.
             var getPEventHandler = function(pro, existingEventFunction, eventFunction) {
                 if(existingEventFunction) {
@@ -378,7 +378,7 @@ public class VProcessing extends Composite
                 }
                 return eventFunction;
             }
-    
+
             p.mouseMoved = getPEventHandler(p, p.mouseMoved, function() {
                 vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::mouseMoved()();
             });
@@ -403,14 +403,14 @@ public class VProcessing extends Composite
             p.keyTyped = getPEventHandler(p, p.keyTyped, function() {
                 vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::keyTyped()();
             });
-    
+
              p.setup = function setup() {
                  vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::setup()();
              }
              p.draw = function draw() {
                  vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::draw()();
              }
-    
+
              vprocessing.@org.vaadin.tltv.vprocjs.gwt.client.ui.VProcessing::proJsObj = p;
              p.setup();
          } catch(e) {

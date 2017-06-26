@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Tomi Virtanen
+ * Copyright 2013-2017 Tomi Virtanen
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,7 @@ import com.vaadin.client.extensions.AbstractExtensionConnector;
  * Abstract Connector for the Java implementation of the sketches. This class
  * acts as a client-side link to the server.
  */
-public abstract class ProcessingCodeConnector extends
-        AbstractExtensionConnector {
+public abstract class ProcessingCodeConnector extends AbstractExtensionConnector {
 
     private VProcessing widget;
 
@@ -43,14 +42,13 @@ public abstract class ProcessingCodeConnector extends
         ProcessingCodeState state = getState();
         VProcessing widget = getWidget();
         widget.setUId(getConnectorId());
-        widget.setProcessingJavaCode(getProcessingJavaCode(state
-                .getProcessingJavaCodeClass()));
+        widget.setProcessingJavaCode(getProcessingJavaCode(state.getProcessingJavaCodeClass()));
         widget.stateChanged();
     }
 
     /**
      * Get active implementation of the sketch.
-     * 
+     *
      * @param codeClass
      *            Active processing java code class identifier
      * @return

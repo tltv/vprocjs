@@ -43,7 +43,7 @@ public class ProcessingTestUI extends UI {
     private static final long serialVersionUID = -2006622339916372647L;
 
     @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = ProcessingTestUI.class, widgetset = "org.vaadin.tltv.vprocjs.gwt.ProcessingJsWidgetset")
+    @VaadinServletConfiguration(productionMode = false, ui = ProcessingTestUI.class, widgetset = "org.vaadin.tltv.vprocjs.gwt.AppWidgetset")
     public static class Servlet extends VaadinServlet {
     }
 

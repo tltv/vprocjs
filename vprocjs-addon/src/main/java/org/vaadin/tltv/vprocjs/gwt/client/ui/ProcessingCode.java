@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Tomi Virtanen
+ * Copyright 2013-2017 Tomi Virtanen
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,7 @@ import java.util.Map;
 
 public interface ProcessingCode extends ProcessingCodeMethods {
 
-    void setProcessing(VProcessing vprocessing,
-            Map<Object, Object> sharedVariables);
+    void setProcessing(VProcessing vprocessing, Map<Object, Object> sharedVariables);
 
     void setProcessingJavascriptObject(ProcessingJavascriptObject proJsObj);
 
